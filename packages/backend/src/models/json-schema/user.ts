@@ -674,6 +674,18 @@ export const packedUserDetailedNotMeSchema = {
 	],
 } as const;
 
+export const userTokenSchema = {
+	type: 'object',
+	properties: {
+		token: {
+			type: 'string',
+			optional: false, nullable: false,
+			example: 'xxxxxxxxxx',
+		},
+
+	},
+} as const;
+
 export const packedMeDetailedSchema = {
 	type: 'object',
 	allOf: [

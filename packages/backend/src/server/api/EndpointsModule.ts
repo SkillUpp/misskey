@@ -9,6 +9,7 @@ import { CoreModule } from '@/core/CoreModule.js';
 import * as ep___admin_meta from './endpoints/admin/meta.js';
 import * as ep___admin_abuseUserReports from './endpoints/admin/abuse-user-reports.js';
 import * as ep___admin_accounts_create from './endpoints/admin/accounts/create.js';
+import * as ep___admin_accounts_get_token from './endpoints/admin/accounts/get-token.js';
 import * as ep___admin_accounts_delete from './endpoints/admin/accounts/delete.js';
 import * as ep___admin_accounts_findByEmail from './endpoints/admin/accounts/find-by-email.js';
 import * as ep___admin_ad_create from './endpoints/admin/ad/create.js';
@@ -381,6 +382,7 @@ import type { Provider } from '@nestjs/common';
 const $admin_meta: Provider = { provide: 'ep:admin/meta', useClass: ep___admin_meta.default };
 const $admin_abuseUserReports: Provider = { provide: 'ep:admin/abuse-user-reports', useClass: ep___admin_abuseUserReports.default };
 const $admin_accounts_create: Provider = { provide: 'ep:admin/accounts/create', useClass: ep___admin_accounts_create.default };
+const $admin_accounts_getoToken: Provider = { provide: 'ep:admin/accounts/get-token', useClass: ep___admin_accounts_get_token.default };
 const $admin_accounts_delete: Provider = { provide: 'ep:admin/accounts/delete', useClass: ep___admin_accounts_delete.default };
 const $admin_accounts_findByEmail: Provider = { provide: 'ep:admin/accounts/find-by-email', useClass: ep___admin_accounts_findByEmail.default };
 const $admin_ad_create: Provider = { provide: 'ep:admin/ad/create', useClass: ep___admin_ad_create.default };
@@ -757,6 +759,7 @@ const $reversi_verify: Provider = { provide: 'ep:reversi/verify', useClass: ep__
 		$admin_meta,
 		$admin_abuseUserReports,
 		$admin_accounts_create,
+		$admin_accounts_getoToken,
 		$admin_accounts_delete,
 		$admin_accounts_findByEmail,
 		$admin_ad_create,
@@ -1127,6 +1130,7 @@ const $reversi_verify: Provider = { provide: 'ep:reversi/verify', useClass: ep__
 		$admin_meta,
 		$admin_abuseUserReports,
 		$admin_accounts_create,
+		$admin_accounts_getoToken,
 		$admin_accounts_delete,
 		$admin_accounts_findByEmail,
 		$admin_ad_create,
