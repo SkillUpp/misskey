@@ -1329,9 +1329,9 @@ _initialTutorial:
     title: "恭喜您，已经完成了教程🎉\n"
     description: "这里介绍的只是其中一小部分的功能。 要了解更多有关如何使用 Misskey 的更多信息，请访问 {link}。"
 _timelineDescription:
-  home: "首页时间线可以查看您关注的账户的帖子。"
+  home: "关注时间线可以查看您关注的账户的帖子。"
   local: "本地时间线可以查看这个服务器上所有用户发表的帖子。"
-  social: "社交时间线将同时显示首页时间线和本地时间线的内容。"
+  social: "全部时间线将显示所有用户发表的帖子。"
   global: "全局时间线可以查看所有已联合的服务器上的帖子。"
 _serverRules:
   description: "在新用户注册前显示服务器的简单规则。推荐显示服务条款的主要内容。"
@@ -2204,9 +2204,9 @@ _instanceCharts:
   files: "文件总数增减"
   filesTotal: "文件数总计"
 _timelines:
-  home: "首页"
+  home: "关注"
   local: "本地"
-  social: "社交"
+  social: "全部"
   global: "全局"
 _play:
   new: "创建 Play"

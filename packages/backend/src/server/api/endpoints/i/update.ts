@@ -138,6 +138,7 @@ export const paramDef = {
 		birthday: { ...birthdaySchema, nullable: true },
 		lang: { type: 'string', enum: [null, ...Object.keys(langmap)] as string[], nullable: true },
 		avatarId: { type: 'string', format: 'misskey:id', nullable: true },
+		avatarUrl: { type: 'string', nullable: true },
 		avatarDecorations: { type: 'array', maxItems: 16, items: {
 			type: 'object',
 			properties: {
@@ -330,10 +331,9 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 				updates.avatarId = avatar.id;
 				updates.avatarUrl = this.driveFileEntityService.getPublicUrl(avatar, 'avatar');
 				updates.avatarBlurhash = avatar.blurhash;
-			} else if (ps.avatarId === null) {
-				updates.avatarId = null;
-				updates.avatarUrl = null;
-				updates.avatarBlurhash = null;
+			}
+			if (ps.avatarUrl) {
+				updates.avatarUrl = ps.avatarUrl;
 			}
 
 			if (ps.bannerId) {

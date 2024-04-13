@@ -286,36 +286,16 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 	icon: 'ti ti-star',
 	iconOnly: true,
 }))), {
-	key: 'home',
-	title: i18n.ts._timelines.home,
-	icon: 'ti ti-home',
-	iconOnly: true,
-}, ...(isLocalTimelineAvailable ? [{
-	key: 'local',
-	title: i18n.ts._timelines.local,
-	icon: 'ti ti-planet',
-	iconOnly: true,
-}, {
 	key: 'social',
 	title: i18n.ts._timelines.social,
 	icon: 'ti ti-universe',
 	iconOnly: true,
-}] : []), ...(isGlobalTimelineAvailable ? [{
-	key: 'global',
-	title: i18n.ts._timelines.global,
-	icon: 'ti ti-whirl',
+}, ...(isLocalTimelineAvailable ? [{
+	key: 'home',
+	title: i18n.ts._timelines.home,
+	icon: 'ti ti-home',
 	iconOnly: true,
 }] : []), {
-	icon: 'ti ti-list',
-	title: i18n.ts.lists,
-	iconOnly: true,
-	onClick: chooseList,
-}, {
-	icon: 'ti ti-antenna',
-	title: i18n.ts.antennas,
-	iconOnly: true,
-	onClick: chooseAntenna,
-}, {
 	icon: 'ti ti-device-tv',
 	title: i18n.ts.channel,
 	iconOnly: true,
