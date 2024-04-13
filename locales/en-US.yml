@@ -1330,9 +1330,9 @@ _initialTutorial:
     title: "You've completed the tutorial! 🎉"
     description: "The functions introduced here are just a small part. For a more detailed understanding of using Misskey, please refer to {link}."
 _timelineDescription:
-  home: "In the Home timeline, you can see notes from accounts you follow."
+  home: "In the Follow timeline, you can see notes from accounts you follow."
   local: "In the Local timeline, you can see notes from all users on this server."
-  social: "The Social timeline displays notes from both the Home and Local timelines."
+  social: "The Social timeline displays notes from both the Follow and Local timelines."
   global: "In the Global timeline, you can see notes from all connected servers."
 _serverRules:
   description: "A set of rules to be displayed before registration. Setting a summary of the Terms of Service is recommended."
@@ -2206,7 +2206,7 @@ _instanceCharts:
   files: "Difference in the number of files"
   filesTotal: "Cumulative number of files"
 _timelines:
-  home: "Home"
+  home: "Follow"
   local: "Local"
   social: "Social"
   global: "Global"
