@@ -22,7 +22,7 @@ type Account = Misskey.entities.MeDetailed & { token: string };
 const accountData = miLocalStorage.getItem('account');
 
 // TODO: 外部からはreadonlyに
-export const $i = accountData ? reactive(JSON.parse(accountData) as Account) : null;
+export let $i = accountData ? reactive(JSON.parse(accountData) as Account) : null;
 
 export const iAmModerator = $i != null && ($i.isAdmin === true || $i.isModerator === true);
 export const iAmAdmin = $i != null && $i.isAdmin;
@@ -98,6 +98,36 @@ export async function removeAccount(idOrToken: Account['id']) {
 	} else {
 		await del('accounts');
 	}
+}
+
+export function fetchAccountBySkillUpp() {
+	return new Promise((done, fail) => {
+		window.fetch('https://api-dev.skillupp.xyz/api/v1/community/me', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			credentials: 'include',
+		})
+			.then(res => new Promise<Account | { error: Record<string, any> }>((done2, fail2) => {
+				if (res.status >= 500 && res.status < 600) {
+					// サーバーエラー(5xx)の場合をrejectとする
+					// （認証エラーなど4xxはresolve）
+					return fail2(res);
+				}
+				res.json().then(done2, fail2);
+			}))
+			.then(async res => {
+				if (res.error) {
+					// rejectかつ理由がtrueの場合、削除対象であることを示す
+					fail(true);
+				} else {
+					miLocalStorage.setItem('account', JSON.stringify(res));
+					$i = miLocalStorage.getItem('account');
+				}
+			})
+			.catch(fail);
+	});
 }
 
 function fetchAccount(token: string, id?: string, forceShowDialog?: boolean): Promise<Account> {
@@ -316,6 +346,3 @@ export async function openAccountMenu(opts: {
 	}
 }
 
-if (_DEV_) {
-	(window as any).$i = $i;
-}

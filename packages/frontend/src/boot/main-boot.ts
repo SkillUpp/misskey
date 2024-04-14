@@ -10,7 +10,7 @@ import { i18n } from '@/i18n.js';
 import { alert, confirm, popup, post, toast } from '@/os.js';
 import { useStream } from '@/stream.js';
 import * as sound from '@/scripts/sound.js';
-import { $i, signout, updateAccount } from '@/account.js';
+import { $i, fetchAccountBySkillUpp, signout, updateAccount } from '@/account.js';
 import { instance } from '@/instance.js';
 import { ColdDeviceStorage, defaultStore } from '@/store.js';
 import { makeHotkey } from '@/scripts/hotkey.js';
@@ -66,7 +66,6 @@ export async function mainBoot() {
 			install(plugin);
 		});
 	}
-
 	const hotkeys = {
 		'd': (): void => {
 			defaultStore.set('darkMode', !defaultStore.state.darkMode);
@@ -97,7 +96,11 @@ export async function mainBoot() {
 			}
 		}
 	}
+	try {
+		await fetchAccountBySkillUpp();
+	} catch (error) {
 
+	}
 	if ($i) {
 		// only add post shortcuts if logged in
 		hotkeys['p|n'] = post;
