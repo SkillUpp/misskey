@@ -124,6 +124,7 @@ export function fetchAccountBySkillUpp() {
 				} else {
 					miLocalStorage.setItem('account', JSON.stringify(res));
 					$i = miLocalStorage.getItem('account');
+					document.cookie = `token=${res.token}; path=/; max-age=31536000`; // bull dashboardの認証とかで使う
 				}
 			})
 			.catch(fail);

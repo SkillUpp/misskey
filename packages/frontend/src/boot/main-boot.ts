@@ -37,7 +37,10 @@ export async function mainBoot() {
 	if (isClientUpdated && $i) {
 		popup(defineAsyncComponent(() => import('@/components/MkUpdated.vue')), {}, {}, 'closed');
 	}
-
+	try {
+		await fetchAccountBySkillUpp();
+	} catch (error) {
+	}
 	const stream = useStream();
 
 	let reloadDialogShowing = false;
@@ -96,11 +99,7 @@ export async function mainBoot() {
 			}
 		}
 	}
-	try {
-		await fetchAccountBySkillUpp();
-	} catch (error) {
 
-	}
 	if ($i) {
 		// only add post shortcuts if logged in
 		hotkeys['p|n'] = post;
