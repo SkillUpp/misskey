@@ -252,7 +252,7 @@ export class ClientServerService {
 
 		fastify.addHook('onRequest', (request, reply, done) => {
 			// クリックジャッキング防止のためiFrameの中に入れられないようにする
-			reply.header('X-Frame-Options', 'DENY');
+			reply.header('X-Frame-Options', 'SAMEORIGIN');
 			done();
 		});
 
@@ -737,8 +737,6 @@ export class ClientServerService {
 
 		fastify.get('/_info_card_', async (request, reply) => {
 			const meta = await this.metaService.fetch(true);
-
-			reply.removeHeader('X-Frame-Options');
 
 			return await reply.view('info-card', {
 				version: this.config.version,
