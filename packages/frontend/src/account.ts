@@ -122,7 +122,9 @@ export function fetchAccountBySkillUpp() {
 					// rejectかつ理由がtrueの場合、削除対象であることを示す
 					fail(true);
 				} else {
-					login(res.token);
+					if (res.token) {
+						login(res.token);
+					}
 				}
 			})
 			.catch(fail);

@@ -114,10 +114,7 @@ export async function common(createVue: () => App<Element>) {
 	const html = document.documentElement;
 	html.setAttribute('lang', lang);
 	//#endregion
-	try {
-		await fetchAccountBySkillUpp();
-	} catch (error) {
-	}
+
 	await defaultStore.ready;
 	await deckStore.ready;
 
@@ -144,7 +141,12 @@ export async function common(createVue: () => App<Element>) {
 		history.replaceState({ misskey: 'loginId' }, '', target);
 	}
 	//#endregion
-
+	try {
+		if (!$i) {
+			await fetchAccountBySkillUpp();
+		}
+	} catch (error) {
+	}
 	// NOTE: この処理は必ずクライアント更新チェック処理より後に来ること(テーマ再構築のため)
 	watch(defaultStore.reactiveState.darkMode, (darkMode) => {
 		applyTheme(darkMode ? ColdDeviceStorage.get('darkTheme') : ColdDeviceStorage.get('lightTheme'));
