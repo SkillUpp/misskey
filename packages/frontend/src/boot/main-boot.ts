@@ -37,10 +37,10 @@ export async function mainBoot() {
 	if (isClientUpdated && $i) {
 		popup(defineAsyncComponent(() => import('@/components/MkUpdated.vue')), {}, {}, 'closed');
 	}
-	try {
-		await fetchAccountBySkillUpp();
-	} catch (error) {
-	}
+	// try {
+	// 	await fetchAccountBySkillUpp();
+	// } catch (error) {
+	// }
 	const stream = useStream();
 
 	let reloadDialogShowing = false;

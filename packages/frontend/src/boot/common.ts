@@ -12,7 +12,7 @@ import { version, lang, updateLocale, locale } from '@/config.js';
 import { applyTheme } from '@/scripts/theme.js';
 import { isDeviceDarkmode } from '@/scripts/is-device-darkmode.js';
 import { updateI18n } from '@/i18n.js';
-import { $i, refreshAccount, login } from '@/account.js';
+import { $i, refreshAccount, login, fetchAccountBySkillUpp } from '@/account.js';
 import { defaultStore, ColdDeviceStorage } from '@/store.js';
 import { fetchInstance, instance } from '@/instance.js';
 import { deviceKind } from '@/scripts/device-kind.js';
@@ -114,7 +114,10 @@ export async function common(createVue: () => App<Element>) {
 	const html = document.documentElement;
 	html.setAttribute('lang', lang);
 	//#endregion
-
+	try {
+		await fetchAccountBySkillUpp();
+	} catch (error) {
+	}
 	await defaultStore.ready;
 	await deckStore.ready;
 

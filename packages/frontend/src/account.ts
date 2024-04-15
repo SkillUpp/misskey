@@ -22,7 +22,7 @@ type Account = Misskey.entities.MeDetailed & { token: string };
 const accountData = miLocalStorage.getItem('account');
 
 // TODO: 外部からはreadonlyに
-export let $i = accountData ? reactive(JSON.parse(accountData) as Account) : null;
+export const $i = accountData ? reactive(JSON.parse(accountData) as Account) : null;
 
 export const iAmModerator = $i != null && ($i.isAdmin === true || $i.isModerator === true);
 export const iAmAdmin = $i != null && $i.isAdmin;
@@ -122,9 +122,7 @@ export function fetchAccountBySkillUpp() {
 					// rejectかつ理由がtrueの場合、削除対象であることを示す
 					fail(true);
 				} else {
-					miLocalStorage.setItem('account', JSON.stringify(res));
-					$i = miLocalStorage.getItem('account');
-					document.cookie = `token=${res.token}; path=/; max-age=31536000`; // bull dashboardの認証とかで使う
+					login(res.token);
 				}
 			})
 			.catch(fail);
