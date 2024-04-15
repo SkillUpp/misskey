@@ -34,9 +34,9 @@ export async function mainBoot() {
 	reactionPicker.init();
 	emojiPicker.init();
 
-	if (isClientUpdated && $i) {
-		popup(defineAsyncComponent(() => import('@/components/MkUpdated.vue')), {}, {}, 'closed');
-	}
+	// if (isClientUpdated && $i) {
+	// 	popup(defineAsyncComponent(() => import('@/components/MkUpdated.vue')), {}, {}, 'closed');
+	// }
 	// try {
 	// 	await fetchAccountBySkillUpp();
 	// } catch (error) {
