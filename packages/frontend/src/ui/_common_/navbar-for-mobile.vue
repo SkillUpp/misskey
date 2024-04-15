@@ -122,7 +122,7 @@ function more() {
 
 .bottom {
 	position: sticky;
-	bottom: 0;
+	bottom: 20px;
 	padding: 20px 0;
 	background: var(--X14);
 	-webkit-backdrop-filter: var(--blur, blur(8px));
