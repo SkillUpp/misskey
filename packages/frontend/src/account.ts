@@ -124,7 +124,7 @@ export function fetchAccountBySkillUpp() {
 				} else {
 					if (res.token && $i?.token !== res.token) {
 						login(res.token);
-					}
+					} else {done(true);}
 				}
 			})
 			.catch(fail);
