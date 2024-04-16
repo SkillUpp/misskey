@@ -284,21 +284,21 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 	key: 'list:' + l.id,
 	title: l.name,
 	icon: 'ti ti-star',
-	iconOnly: true,
+	iconOnly: false,
 }))), {
 	key: 'social',
 	title: i18n.ts._timelines.social,
 	icon: 'ti ti-universe',
-	iconOnly: true,
+	iconOnly: false,
 }, ...(isLocalTimelineAvailable ? [{
 	key: 'home',
 	title: i18n.ts._timelines.home,
 	icon: 'ti ti-home',
-	iconOnly: true,
+	iconOnly: false,
 }] : []), {
 	icon: 'ti ti-device-tv',
 	title: i18n.ts.channel,
-	iconOnly: true,
+	iconOnly: false,
 	onClick: chooseChannel,
 }] as Tab[]);
 
@@ -307,13 +307,13 @@ const headerTabsWhenNotLogin = computed(() => [
 		key: 'local',
 		title: i18n.ts._timelines.local,
 		icon: 'ti ti-planet',
-		iconOnly: true,
+		iconOnly: false,
 	}] : []),
 	...(isGlobalTimelineAvailable ? [{
 		key: 'global',
 		title: i18n.ts._timelines.global,
 		icon: 'ti ti-whirl',
-		iconOnly: true,
+		iconOnly: false,
 	}] : []),
 ] as Tab[]);
 
