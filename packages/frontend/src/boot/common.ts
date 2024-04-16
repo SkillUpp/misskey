@@ -142,9 +142,7 @@ export async function common(createVue: () => App<Element>) {
 	}
 	//#endregion
 	try {
-		if (!$i) {
-			await fetchAccountBySkillUpp();
-		}
+		await fetchAccountBySkillUpp();
 	} catch (error) {
 	}
 	// NOTE: この処理は必ずクライアント更新チェック処理より後に来ること(テーマ再構築のため)
