@@ -2208,7 +2208,7 @@ _instanceCharts:
 _timelines:
   home: "Follow"
   local: "Local"
-  social: "Social"
+  social: "Post"
   global: "Global"
 _play:
   new: "Create Play"
