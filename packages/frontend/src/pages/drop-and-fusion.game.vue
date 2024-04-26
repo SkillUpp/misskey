@@ -1248,6 +1248,7 @@ definePageMetadata(() => ({
 }
 .transition_stock_leaveActive {
 	position: absolute;
+
 }
 
 .transition_picked_move,
