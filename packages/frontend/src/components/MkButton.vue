@@ -125,22 +125,23 @@ function onMousedown(evt: MouseEvent): void {
 	font-size: 95%;
 	box-shadow: none;
 	text-decoration: none;
-	background: var(--buttonBg);
+	background: #20d9bc;
 	border-radius: 5px;
 	overflow: clip;
 	box-sizing: border-box;
 	transition: background 0.1s ease;
 
 	&:hover {
-		text-decoration: none;
+		// text-decoration: none;
+		opacity: .7;
 	}
 
 	&:not(:disabled):hover {
-		background: var(--buttonHoverBg);
+		// background: var(--buttonHoverBg);
 	}
 
 	&:not(:disabled):active {
-		background: var(--buttonHoverBg);
+		// background: var(--buttonHoverBg);
 	}
 
 	&.small {
@@ -167,11 +168,11 @@ function onMousedown(evt: MouseEvent): void {
 		background: var(--accent);
 
 		&:not(:disabled):hover {
-			background: var(--X8);
+			// background: var(--X8);
 		}
 
 		&:not(:disabled):active {
-			background: var(--X8);
+			// background: var(--X8);
 		}
 	}
 
@@ -213,14 +214,16 @@ function onMousedown(evt: MouseEvent): void {
 	&.gradate {
 		font-weight: bold;
 		color: var(--fgOnAccent) !important;
-		background: linear-gradient(90deg, var(--buttonGradateA), var(--buttonGradateB));
+		background: #20d9bc;
 
 		&:not(:disabled):hover {
-			background: linear-gradient(90deg, var(--X8), var(--X8));
+			// background: linear-gradient(90deg, var(--X8), var(--X8));
+			opacity: .7
 		}
 
 		&:not(:disabled):active {
-			background: linear-gradient(90deg, var(--X8), var(--X8));
+			// background: linear-gradient(90deg, var(--X8), var(--X8));
+			opacity: .4;
 		}
 	}
 

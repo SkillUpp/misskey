@@ -32,13 +32,13 @@ export function misskeyApi<
 		// Append a credential
 		if ($i) (data as any).i = $i.token;
 		if (token !== undefined) (data as any).i = token;
-
 		// Send request
 		window.fetch(`${apiUrl}/${endpoint}`, {
 			method: 'POST',
 			body: JSON.stringify(data),
 			credentials: 'omit',
 			cache: 'no-cache',
+
 			headers: {
 				'Content-Type': 'application/json',
 			},

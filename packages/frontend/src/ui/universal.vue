@@ -7,7 +7,10 @@ SPDX-License-Identifier: AGPL-3.0-only
 <div :class="$style.root">
 	<XSidebar v-if="!isMobile" :class="$style.sidebar"/>
 
-	<MkStickyContainer ref="contents" :class="$style.contents" style="container-type: inline-size;" @contextmenu.stop="onContextmenu">
+	<MkStickyContainer
+		ref="contents" :class="$style.contents" style="container-type: inline-size;"
+		@contextmenu.stop="onContextmenu"
+	>
 		<template #header>
 			<div>
 				<XAnnouncements v-if="$i"/>
@@ -22,19 +25,47 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<XWidgets/>
 	</div>
 
-	<button v-if="(!isDesktop || pageMetadata?.needWideArea) && !isMobile" :class="$style.widgetButton" class="_button" @click="widgetsShowing = true"><i class="ti ti-apps"></i></button>
+	<button
+		v-if="(!isDesktop || pageMetadata?.needWideArea) && !isMobile" :class="$style.widgetButton" class="_button"
+		@click="widgetsShowing = true"
+	>
+		<i class="ti ti-apps"></i>
+	</button>
 
 	<div v-if="isMobile" ref="navFooter" :class="$style.nav">
-		<button :class="$style.navButton" class="_button" @click="drawerMenuShowing = true"><i :class="$style.navButtonIcon" class="ti ti-menu-2"></i><span v-if="menuIndicated" :class="$style.navButtonIndicator"><i class="_indicatorCircle"></i></span></button>
-		<button :class="$style.navButton" class="_button" @click="isRoot ? top() : mainRouter.push('/')"><i :class="$style.navButtonIcon" class="ti ti-home"></i></button>
+		<button :class="$style.navButton" class="_button" @click="drawerMenuShowing = true">
+			<i
+				:class="$style.navButtonIcon" class="ti ti-menu-2"
+			></i><span
+				v-if="menuIndicated"
+				:class="$style.navButtonIndicator"
+			><i class="_indicatorCircle"></i></span>
+		</button>
+		<button :class="$style.navButton" class="_button" @click="isRoot ? top() : mainRouter.push('/')">
+			<i
+				:class="$style.navButtonIcon" class="ti ti-home"
+			></i>
+		</button>
 		<button :class="$style.navButton" class="_button" @click="mainRouter.push('/my/notifications')">
 			<i :class="$style.navButtonIcon" class="ti ti-bell"></i>
 			<span v-if="$i?.hasUnreadNotification" :class="$style.navButtonIndicator">
-				<span class="_indicateCounter" :class="$style.itemIndicateValueIcon">{{ $i.unreadNotificationsCount > 99 ? '99+' : $i.unreadNotificationsCount }}</span>
+				<span class="_indicateCounter" :class="$style.itemIndicateValueIcon">{{ $i.unreadNotificationsCount > 99 ?
+					'99+' :
+					$i.unreadNotificationsCount }}</span>
 			</span>
 		</button>
-		<button :class="$style.navButton" class="_button" @click="widgetsShowing = true"><i :class="$style.navButtonIcon" class="ti ti-apps"></i></button>
-		<button :class="$style.postButton" class="_button" @click="os.post()"><i :class="$style.navButtonIcon" class="ti ti-pencil"></i></button>
+		<button :class="$style.navButton" class="_button" @click="widgetsShowing = true">
+			<i
+				:class="$style.navButtonIcon"
+				class="ti ti-apps"
+			></i>
+		</button>
+		<button :class="$style.postButton" class="_button" @click="os.post()">
+			<i
+				:class="$style.navButtonIcon"
+				class="ti ti-pencil"
+			></i>
+		</button>
 	</div>
 
 	<Transition
@@ -44,10 +75,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 		:leaveToClass="defaultStore.state.animation ? $style.transition_menuDrawerBg_leaveTo : ''"
 	>
 		<div
-			v-if="drawerMenuShowing"
-			:class="$style.menuDrawerBg"
-			class="_modalBg"
-			@click="drawerMenuShowing = false"
+			v-if="drawerMenuShowing" :class="$style.menuDrawerBg" class="_modalBg" @click="drawerMenuShowing = false"
 			@touchstart.passive="drawerMenuShowing = false"
 		></div>
 	</Transition>
@@ -70,10 +98,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 		:leaveToClass="defaultStore.state.animation ? $style.transition_widgetsDrawerBg_leaveTo : ''"
 	>
 		<div
-			v-if="widgetsShowing"
-			:class="$style.widgetsDrawerBg"
-			class="_modalBg"
-			@click="widgetsShowing = false"
+			v-if="widgetsShowing" :class="$style.widgetsDrawerBg" class="_modalBg" @click="widgetsShowing = false"
 			@touchstart.passive="widgetsShowing = false"
 		></div>
 	</Transition>
@@ -85,7 +110,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 		:leaveToClass="defaultStore.state.animation ? $style.transition_widgetsDrawer_leaveTo : ''"
 	>
 		<div v-if="widgetsShowing" :class="$style.widgetsDrawer">
-			<button class="_button" :class="$style.widgetsCloseButton" @click="widgetsShowing = false"><i class="ti ti-x"></i></button>
+			<button class="_button" :class="$style.widgetsCloseButton" @click="widgetsShowing = false">
+				<i
+					class="ti ti-x"
+				></i>
+			</button>
 			<XWidgets/>
 		</div>
 	</Transition>
@@ -171,20 +200,20 @@ if (window.innerWidth > 1024) {
 	}
 }
 
-defaultStore.loaded.then(() => {
-	if (defaultStore.state.widgets.length === 0) {
-		defaultStore.set('widgets', [{
-			name: 'calendar',
-			id: 'a', place: 'right', data: {},
-		}, {
-			name: 'notifications',
-			id: 'b', place: 'right', data: {},
-		}, {
-			name: 'trends',
-			id: 'c', place: 'right', data: {},
-		}]);
-	}
-});
+// defaultStore.loaded.then(() => {
+// 	if (defaultStore.state.widgets.length === 0) {
+// 		defaultStore.set('widgets', [{
+// 			name: 'calendar',
+// 			id: 'a', place: 'right', data: {},
+// 		}, {
+// 			name: 'notifications',
+// 			id: 'b', place: 'right', data: {},
+// 		}, {
+// 			name: 'trends',
+// 			id: 'c', place: 'right', data: {},
+// 		}]);
+// 	}
+// });
 
 onMounted(() => {
 	if (!isDesktop.value) {
@@ -275,6 +304,7 @@ $widgets-hide-threshold: 1090px;
 	opacity: 1;
 	transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .transition_menuDrawerBg_enterFrom,
 .transition_menuDrawerBg_leaveTo {
 	opacity: 0;
@@ -286,6 +316,7 @@ $widgets-hide-threshold: 1090px;
 	transform: translateX(0);
 	transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .transition_menuDrawer_enterFrom,
 .transition_menuDrawer_leaveTo {
 	opacity: 0;
@@ -297,6 +328,7 @@ $widgets-hide-threshold: 1090px;
 	opacity: 1;
 	transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .transition_widgetsDrawerBg_enterFrom,
 .transition_widgetsDrawerBg_leaveTo {
 	opacity: 0;
@@ -308,6 +340,7 @@ $widgets-hide-threshold: 1090px;
 	transform: translateX(0);
 	transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .transition_widgetsDrawer_enterFrom,
 .transition_widgetsDrawer_leaveTo {
 	opacity: 0;
@@ -337,6 +370,7 @@ $widgets-hide-threshold: 1090px;
 }
 
 .widgets {
+	display: none;
 	width: 350px;
 	height: 100%;
 	box-sizing: border-box;

@@ -141,8 +141,8 @@ export const defaultStore = markRaw(new Storage('base', {
 			'followRequests',
 			'channels',
 			'explore',
-			'announcements',
-			'search',
+			// 'announcements',
+			// 'search',
 		],
 	},
 	visibility: {
@@ -168,15 +168,15 @@ export const defaultStore = markRaw(new Storage('base', {
 			props: Record<string, any>;
 		}[],
 	},
-	widgets: {
-		where: 'account',
-		default: [] as {
-			name: string;
-			id: string;
-			place: string | null;
-			data: Record<string, any>;
-		}[],
-	},
+	// widgets: {
+	// 	where: 'account',
+	// 	default: [] as {
+	// 		name: string;
+	// 		id: string;
+	// 		place: string | null;
+	// 		data: Record<string, any>;
+	// 	}[],
+	// },
 	tl: {
 		where: 'deviceAccount',
 		default: {

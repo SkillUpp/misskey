@@ -32,9 +32,9 @@ SPDX-License-Identifier: AGPL-3.0-only
 					</span>
 				</component>
 			</template>
-			<MkA v-if="$i.isAdmin || $i.isModerator" v-tooltip.noDelay.right="i18n.ts.controlPanel" :class="$style.item" :activeClass="$style.active" to="/admin">
+			<!-- <MkA v-if="$i.isAdmin || $i.isModerator" v-tooltip.noDelay.right="i18n.ts.controlPanel" :class="$style.item" :activeClass="$style.active" to="/admin">
 				<i :class="$style.itemIcon" class="ti ti-dashboard ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.controlPanel }}</span>
-			</MkA>
+			</MkA> -->
 		</div>
 		<div :class="$style.bottom">
 			<button v-tooltip.noDelay.right="i18n.ts.note" class="_button" :class="[$style.post]" data-cy-open-post-form @click="os.post">
@@ -173,7 +173,7 @@ function more(ev: MouseEvent) {
 		display: block;
 		width: 100%;
 		height: 40px;
-		color: var(--fgOnAccent);
+		color: #fff;
 		font-weight: bold;
 		text-align: left;
 
@@ -189,12 +189,13 @@ function more(ev: MouseEvent) {
 			right: 0;
 			bottom: 0;
 			border-radius: 999px;
-			background: linear-gradient(90deg, var(--buttonGradateA), var(--buttonGradateB));
+			background: #20d9bc;
 		}
 
 		&:hover, &.active {
 			&:before {
-				background: var(--accentLighten);
+				// background: var(--accentLighten);
+				opacity: .7
 			}
 		}
 	}
@@ -257,10 +258,15 @@ function more(ev: MouseEvent) {
 		text-align: left;
 		box-sizing: border-box;
 		color: var(--navFg);
+		margin-top: 6px;
+		&:first-child {
+			margin-top: 0;
+		}
 
 		&:hover {
 			text-decoration: none;
-			color: var(--navHoverFg);
+			color: #20d9bc;
+			opacity: .7;
 		}
 
 		&.active {
@@ -268,7 +274,8 @@ function more(ev: MouseEvent) {
 		}
 
 		&:hover, &.active {
-			color: var(--accent);
+			// color: var(--accent);
+			color: #20d9bc;
 
 			&:before {
 				content: "";
@@ -282,7 +289,7 @@ function more(ev: MouseEvent) {
 				right: 0;
 				bottom: 0;
 				border-radius: 999px;
-				background: var(--accentedBg);
+				background: #e8e8e8;
 			}
 		}
 	}

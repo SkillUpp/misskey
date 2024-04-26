@@ -4,9 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-* {
-    font-family: BIZ UDGothic, Roboto, HelveticaNeue, Arial, sans-serif;
-}
+
 
 #misskey_app,
 #splash {
@@ -63,7 +61,7 @@ button {
 }
 
 a {
-    color: rgb(134, 179, 0);
+    color: #20d9bc;
     text-decoration: none;
 }
 
@@ -89,7 +87,6 @@ h1 {
 
 code {
     display: block;
-    font-family: Fira, FiraCode, monospace;
     background: #333;
     padding: 0.5rem 1rem;
     max-width: 40rem;
