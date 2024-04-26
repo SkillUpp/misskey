@@ -39,7 +39,7 @@ const forceSpacerMin = inject('forceSpacerMin', false) || deviceKind === 'smartp
 
 .content {
 	margin: 0 auto;
-	max-width: v-bind('props.contentMax + "px"');
+	// max-width: v-bind('props.contentMax + "px"');
 	container-type: inline-size;
 }
 

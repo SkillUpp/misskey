@@ -6,11 +6,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 <template>
 <MkPullToRefresh ref="prComponent" :refresher="() => reloadTimeline()">
 	<MkNotes
-		v-if="paginationQuery"
-		ref="tlComponent"
-		:pagination="paginationQuery"
-		:noGap="!defaultStore.state.showGapBetweenNotesInTimeline"
-		@queue="emit('queue', $event)"
+		v-if="paginationQuery" ref="tlComponent" :pagination="paginationQuery"
+		:noGap="!defaultStore.state.showGapBetweenNotesInTimeline" @queue="emit('queue', $event)"
 		@status="prComponent?.setDisabled($event)"
 	/>
 </MkPullToRefresh>
@@ -53,14 +50,15 @@ provide('inTimeline', true);
 provide('inChannel', computed(() => props.src === 'channel'));
 
 type TimelineQueryType = {
-  antennaId?: string,
-  withRenotes?: boolean,
-  withReplies?: boolean,
-  withFiles?: boolean,
-  visibility?: string,
-  listId?: string,
-  channelId?: string,
-  roleId?: string
+	antennaId?: string,
+	withRenotes?: boolean,
+	withReplies?: boolean,
+	withFiles?: boolean,
+	visibility?: string,
+	listId?: string,
+	channelId?: string,
+	roleId?: string
+	allowPartial?: string
 }
 
 const prComponent = shallowRef<InstanceType<typeof MkPullToRefresh>>();
@@ -112,6 +110,7 @@ function connectChannel() {
 		});
 	} else if (props.src === 'social') {
 		connection = stream.useChannel('hybridTimeline', {
+
 			withRenotes: props.withRenotes,
 			withReplies: props.withReplies,
 			withFiles: props.onlyFiles ? true : undefined,
@@ -166,6 +165,13 @@ function updatePaginationQuery() {
 		endpoint = 'antennas/notes';
 		query = {
 			antennaId: props.antenna,
+		};
+	} else if (props.src === 'hot') {
+		endpoint = 'notes/featured';
+		query = {
+			allowPartial: props.onlyFiles ? true : undefined,
+			withRenotes: props.withRenotes,
+			withFiles: props.onlyFiles ? true : undefined,
 		};
 	} else if (props.src === 'home') {
 		endpoint = 'notes/timeline';
@@ -257,7 +263,6 @@ onUnmounted(() => {
 function reloadTimeline() {
 	return new Promise<void>((res) => {
 		if (tlComponent.value == null) return;
-
 		tlNotesCount = 0;
 
 		tlComponent.value.pagingComponent?.reload().then(() => {

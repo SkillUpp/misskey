@@ -129,14 +129,6 @@ function openPostForm() {
 	gap: 12px;
 }
 
-.fontSerif {
-	font-family: serif;
-}
-
-.fontMonospace {
-	font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
-}
-
 .postForm {
 	background: var(--bg);
 	border-radius: 8px;

@@ -73,9 +73,6 @@ function copy() {
 	border-radius: 8px;
 }
 
-.codeBlockFallbackCode {
-	font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
-}
 
 .codePlaceholderRoot {
 	display: block;

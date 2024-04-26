@@ -202,9 +202,6 @@
 		<code>${JSON.stringify(details)}</code>`;
 		errorsElement.appendChild(detailsElement);
 		addStyle(`
-		* {
-			font-family: BIZ UDGothic, Roboto, HelveticaNeue, Arial, sans-serif;
-		}
 
 		#misskey_app,
 		#splash {
@@ -279,10 +276,6 @@
 		h1 {
 			font-size: 1.5em;
 			margin: 1em;
-		}
-
-		code {
-			font-family: Fira, FiraCode, monospace;
 		}
 
 		#errorInfo {

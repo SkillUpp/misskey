@@ -5,26 +5,35 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <template>
 <MkStickyContainer>
-	<template #header><MkPageHeader v-model:tab="src" :actions="headerActions" :tabs="$i ? headerTabs : headerTabsWhenNotLogin" :displayMyAvatar="true"/></template>
+	<template #header>
+		<MkPageHeader
+			v-model:tab="src" :actions="headerActions" :tabs="$i ? headerTabs : headerTabsWhenNotLogin"
+			:displayMyAvatar="true" @update:tab="handleChangeTab"
+		/>
+	</template>
 	<MkSpacer :contentMax="800">
 		<MkHorizontalSwipe v-model:tab="src" :tabs="$i ? headerTabs : headerTabsWhenNotLogin">
 			<div :key="src" ref="rootEl" v-hotkey.global="keymap">
-				<MkInfo v-if="['home', 'local', 'social', 'global'].includes(src) && !defaultStore.reactiveState.timelineTutorials.value[src]" style="margin-bottom: var(--margin);" closable @close="closeTutorial()">
+				<!-- <MkInfo
+					v-if="['home', 'local', 'social', 'global'].includes(src) && !defaultStore.reactiveState.timelineTutorials.value[src]"
+					style="margin-bottom: var(--margin);" closable @close="closeTutorial()"
+				>
 					{{ i18n.ts._timelineDescription[src] }}
-				</MkInfo>
-				<MkPostForm v-if="defaultStore.reactiveState.showFixedPostForm.value" :class="$style.postForm" class="post-form _panel" fixed style="margin-bottom: var(--margin);"/>
-				<div v-if="queue > 0" :class="$style.new"><button class="_buttonPrimary" :class="$style.newButton" @click="top()">{{ i18n.ts.newNoteRecived }}</button></div>
+				</MkInfo> -->
+				<MkPostForm
+					v-if="defaultStore.reactiveState.showFixedPostForm.value" :class="$style.postForm"
+					class="post-form _panel" fixed style="margin-bottom: var(--margin);"
+				/>
+				<div v-if="queue > 0" :class="$style.new">
+					<button class="_buttonPrimary" :class="$style.newButton" @click="top()">
+						{{ i18n.ts.newNoteRecived }}
+					</button>
+				</div>
 				<div :class="$style.tl">
 					<MkTimeline
-						ref="tlComponent"
-						:key="src + withRenotes + withReplies + onlyFiles"
-						:src="src.split(':')[0]"
-						:list="src.split(':')[1]"
-						:withRenotes="withRenotes"
-						:withReplies="withReplies"
-						:onlyFiles="onlyFiles"
-						:sound="true"
-						@queue="queueUpdated"
+						ref="tlComponent" :key="src + withRenotes + withReplies + onlyFiles" :src="src.split(':')[0]"
+						:list="src.split(':')[1]" :withRenotes="withRenotes" :withReplies="withReplies" :onlyFiles="onlyFiles"
+						:sound="true" @queue="queueUpdated"
 					/>
 				</div>
 			</div>
@@ -75,6 +84,10 @@ const withRenotes = computed<boolean>({
 	get: () => defaultStore.reactiveState.tl.value.filter.withRenotes,
 	set: (x) => saveTlFilter('withRenotes', x),
 });
+
+const handleChangeTab = (val) => {
+	console.log(val, 'val12345');
+};
 
 // computed内での無限ループを防ぐためのフラグ
 const localSocialTLFilterSwitchStore = ref<'withReplies' | 'onlyFiles' | false>('withReplies');
@@ -201,6 +214,7 @@ async function chooseChannel(ev: MouseEvent): Promise<void> {
 
 function saveSrc(newSrc: 'home' | 'local' | 'social' | 'global' | `list:${string}`): void {
 	const out = deepMerge({ src: newSrc }, defaultStore.state.tl);
+	console.log(out, 'test out');
 
 	if (newSrc.startsWith('userList:')) {
 		const id = newSrc.substring('userList:'.length);
@@ -226,11 +240,11 @@ async function timetravel(): Promise<void> {
 	});
 	if (canceled) return;
 
-	tlComponent.value.timetravel(date);
+	tlComponent.value?.timetravel(date);
 }
 
 function focus(): void {
-	tlComponent.value.focus();
+	tlComponent.value?.focus();
 }
 
 function closeTutorial(): void {
@@ -286,21 +300,27 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 	icon: 'ti ti-star',
 	iconOnly: false,
 }))), {
-	key: 'social',
-	title: i18n.ts._timelines.social,
+	key: 'hot',
+	title: 'Hot',
 	icon: 'ti ti-universe',
 	iconOnly: false,
-}, ...(isLocalTimelineAvailable ? [{
-	key: 'home',
-	title: i18n.ts._timelines.home,
-	icon: 'ti ti-home',
-	iconOnly: false,
-}] : []), {
-	icon: 'ti ti-device-tv',
-	title: i18n.ts.channel,
-	iconOnly: false,
-	onClick: chooseChannel,
-}] as Tab[]);
+},
+																																			{
+																																				key: 'social',
+																																				title: i18n.ts._timelines.social,
+																																				icon: 'ti ti-universe',
+																																				iconOnly: false,
+																																			}, ...(isLocalTimelineAvailable ? [{
+																																				key: 'home',
+																																				title: i18n.ts._timelines.home,
+																																				icon: 'ti ti-home',
+																																				iconOnly: false,
+																																			}] : []), {
+																																				icon: 'ti ti-device-tv',
+																																				title: i18n.ts.channel,
+																																				iconOnly: false,
+																																				onClick: chooseChannel,
+																																			}] as Tab[]);
 
 const headerTabsWhenNotLogin = computed(() => [
 	...(isLocalTimelineAvailable ? [{

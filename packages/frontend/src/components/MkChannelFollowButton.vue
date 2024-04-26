@@ -67,9 +67,9 @@ async function onClick() {
 	position: relative;
 	display: inline-block;
 	font-weight: bold;
-	color: var(--accent);
+	color: #20d9bc;
 	background: transparent;
-	border: solid 1px var(--accent);
+	border: solid 1px #20d9bc;
 	padding: 0;
 	height: 31px;
 	font-size: 16px;

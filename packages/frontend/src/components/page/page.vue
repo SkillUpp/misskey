@@ -20,7 +20,7 @@ defineProps<{
 
 <style lang="scss" module>
 .serif {
-	font-family: serif;
+	// font-family: serif;
 }
 
 .center {

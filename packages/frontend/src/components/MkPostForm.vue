@@ -1057,13 +1057,15 @@ defineExpose({
 
 	&:not(:disabled):hover {
 		> .inner {
-			background: linear-gradient(90deg, var(--X8), var(--X8));
+			// background: linear-gradient(90deg, var(--X8), var(--X8));
+			background: #20d9bc;
 		}
 	}
 
 	&:not(:disabled):active {
 		> .inner {
-			background: linear-gradient(90deg, var(--X8), var(--X8));
+			// background: linear-gradient(90deg, var(--X8), var(--X8));
+			background: #20d9bc;
 		}
 	}
 }
@@ -1086,7 +1088,8 @@ defineExpose({
 	min-width: 90px;
 	box-sizing: border-box;
 	color: var(--fgOnAccent);
-	background: linear-gradient(90deg, var(--buttonGradateA), var(--buttonGradateB));
+	// background: linear-gradient(90deg, var(--buttonGradateA), var(--buttonGradateB));
+	background: #20d9bc;
 }
 
 .headerRightItem {

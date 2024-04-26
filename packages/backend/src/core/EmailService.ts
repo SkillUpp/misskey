@@ -79,7 +79,6 @@ export class EmailService {
 			body {
 				padding: 16px;
 				margin: 0;
-				font-family: sans-serif;
 				font-size: 14px;
 			}
 

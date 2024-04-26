@@ -499,7 +499,7 @@ onUnmounted(() => {
 						color: var(--fg);
 						overflow: hidden;
 						background: transparent;
-						font-family: inherit;
+						// font-family: inherit;
 					}
 				}
 
