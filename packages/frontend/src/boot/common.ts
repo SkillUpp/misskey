@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: syuilo and misskey-pr oject
- * SPDX-License-Identifier: AGPL-3.0-only 提交测试
+ * SPDX-License-Identifier: AGPL-3.0-only
  */
 
 import { computed, watch, version as vueVersion, App } from 'vue';
