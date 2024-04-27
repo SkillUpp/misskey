@@ -81,6 +81,8 @@ export class RegistryApiService {
 
 	@bindThis
 	public async getAllItemsOfScope(userId: MiUser['id'], domain: string | null, scope: string[]): Promise<MiRegistryItem[]> {
+		console.log(userId, domain, scope, 'scope');
+
 		const query = this.registryItemsRepository.createQueryBuilder('item');
 		query.where(domain == null ? 'item.domain IS NULL' : 'item.domain = :domain', { domain: domain });
 		query.andWhere('item.userId = :userId', { userId: userId });

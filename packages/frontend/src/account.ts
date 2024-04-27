@@ -102,7 +102,7 @@ export async function removeAccount(idOrToken: Account['id']) {
 
 export function fetchAccountBySkillUpp() {
 	return new Promise((done, fail) => {
-		window.fetch('https://api-dev.skillupp.xyz/api/v1/community/me', {
+		window.fetch('https://api.skillupp.xyz/api/v1/community/me', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
