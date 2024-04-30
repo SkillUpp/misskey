@@ -302,21 +302,21 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 }))), {
 	key: 'hot',
 	title: 'Hot',
-	icon: 'ti ti-universe',
+	// icon: 'ti ti-hot',
 	iconOnly: false,
 },
 																																			{
 																																				key: 'social',
 																																				title: i18n.ts._timelines.social,
-																																				icon: 'ti ti-universe',
+																																				// icon: 'ti ti-universe',
 																																				iconOnly: false,
 																																			}, ...(isLocalTimelineAvailable ? [{
 																																				key: 'home',
 																																				title: i18n.ts._timelines.home,
-																																				icon: 'ti ti-home',
+																																				// icon: 'ti ti-home',
 																																				iconOnly: false,
 																																			}] : []), {
-																																				icon: 'ti ti-device-tv',
+																																				// icon: 'ti ti-device-tv',
 																																				title: i18n.ts.channel,
 																																				iconOnly: false,
 																																				onClick: chooseChannel,
