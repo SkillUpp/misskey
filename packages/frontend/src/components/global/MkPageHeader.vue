@@ -4,7 +4,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 -->
 
 <template>
-<div v-if="show" ref="el" :class="[$style.root]" :style="{ background: bg }">
+<div v-if="show" ref="el" :class="[$style.root]">
 	<div :class="[$style.upper, { [$style.slim]: narrow, [$style.thin]: thin_ }]">
 		<div v-if="!thin_ && narrow && props.displayMyAvatar && $i" class="_button" :class="$style.buttonsLeft" @click="openAccountMenu">
 			<MkAvatar :class="$style.avatar" :user="$i"/>
