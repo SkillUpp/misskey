@@ -67,7 +67,7 @@ defineProps<{
 	z-index: 2;
 	width: 58px;
 	height: 58px;
-	border: solid 4px var(--panel);
+	border: solid 4px #fff;
 }
 
 .title {

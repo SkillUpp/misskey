@@ -145,7 +145,7 @@ function exploreOtherServers() {
 
 .panel {
 	position: relative;
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 	box-shadow: 0 12px 32px rgb(0 0 0 / 25%);
 }

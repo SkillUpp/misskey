@@ -145,6 +145,6 @@ function enableAll(): void {
 	padding: 0 4px;
 	width: fit-content;
 	color: var(--error);
-	background: var(--panel);
+	background: #fff;
 }
 </style>

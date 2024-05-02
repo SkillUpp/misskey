@@ -784,7 +784,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 	z-index: 2;
 	width: 100%;
 	height: 64px;
-	background: linear-gradient(0deg, var(--panel), var(--X15));
+	background: linear-gradient(0deg, #fff, var(--X15));
 
 	&:hover > .collapsedLabel {
 		background: var(--panelHighlight);
@@ -793,7 +793,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 
 .collapsedLabel {
 	display: inline-block;
-	background: var(--panel);
+	background: #fff;
 	padding: 6px 10px;
 	font-size: 0.8em;
 	border-radius: 999px;

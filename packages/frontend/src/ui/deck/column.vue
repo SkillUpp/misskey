@@ -425,8 +425,8 @@ function onDrop(ev) {
 	background-color: var(--bg);
 
 	&::-webkit-scrollbar-track {
-		background: var(--panel);
+		background: #fff;
 	}
-	scrollbar-color: var(--scrollbarHandle) var(--panel);
+	scrollbar-color: var(--scrollbarHandle) #fff;
 }
 </style>

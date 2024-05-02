@@ -117,7 +117,7 @@ textarea, input {
 }
 
 optgroup, option {
-	background: var(--panel);
+	background: #fff;
 	color: var(--fg);
 }
 
@@ -271,7 +271,7 @@ rt {
 }
 
 ._panel {
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 	overflow: clip;
 }

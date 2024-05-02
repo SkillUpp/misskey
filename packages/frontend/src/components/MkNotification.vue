@@ -233,8 +233,8 @@ const rejectFollowRequest = () => {
 	height: 20px;
 	box-sizing: border-box;
 	border-radius: 100%;
-	background: var(--panel);
-	box-shadow: 0 0 0 3px var(--panel);
+	background: #fff;
+	box-shadow: 0 0 0 3px #fff;
 	font-size: 11px;
 	text-align: center;
 	color: #fff;
@@ -374,8 +374,8 @@ const rejectFollowRequest = () => {
 	height: 20px;
 	box-sizing: border-box;
 	border-radius: 100%;
-	background: var(--panel);
-	box-shadow: 0 0 0 3px var(--panel);
+	background: #fff;
+	box-shadow: 0 0 0 3px #fff;
 	font-size: 11px;
 	text-align: center;
 	color: #fff;

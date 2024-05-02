@@ -395,7 +395,7 @@ $widgets-hide-threshold: 1090px;
 	border-radius: 100%;
 	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 	font-size: 22px;
-	background: var(--panel);
+	background: #fff;
 }
 
 .widgetsDrawerBg {
@@ -453,7 +453,7 @@ $widgets-hide-threshold: 1090px;
 	max-width: 60px;
 	margin: auto;
 	border-radius: 100%;
-	background: var(--panel);
+	background: #fff;
 	color: var(--fg);
 
 	&:hover {
@@ -513,7 +513,7 @@ $widgets-hide-threshold: 1090px;
 	contain: strict;
 	overflow: auto;
 	overscroll-behavior: contain;
-	background: var(--navBg);
+	background: #fff;
 }
 
 .statusbars {

@@ -63,7 +63,7 @@ const props = defineProps<{
 	}
 
 	> article {
-		background-color: var(--panel);
+		background-color: #fff;
 		padding: 16px;
 		border-radius: var(--radius);
 

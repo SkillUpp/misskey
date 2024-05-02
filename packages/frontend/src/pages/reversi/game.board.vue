@@ -503,7 +503,7 @@ $gap: 4px;
 .boardInner {
 	padding: 32px;
 
-	background: var(--panel);
+	background: #fff;
 	box-shadow: 0 0 2px 1px #ce8a5c, inset 0 0 1px 1px #693410;
 	border-radius: 8px;
 }

@@ -178,7 +178,7 @@ function reduceFrequency(): void {
 	right: 1px;
 	display: grid;
 	place-content: center;
-	background: var(--panel);
+	background: #fff;
 	border-radius: 100%;
 	padding: 2px;
 }

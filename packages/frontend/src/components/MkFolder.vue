@@ -206,7 +206,7 @@ onMounted(() => {
 }
 
 .body {
-	background: var(--panel);
+	background: #fff;
 	border-radius: 0 0 6px 6px;
 	container-type: inline-size;
 

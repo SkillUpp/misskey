@@ -60,7 +60,7 @@ function remove() {
 .cpjygsrt {
 	position: relative;
 	overflow: hidden;
-	background: var(--panel);
+	background: #fff;
 	border: solid 2px var(--X12);
 	border-radius: 8px;
 

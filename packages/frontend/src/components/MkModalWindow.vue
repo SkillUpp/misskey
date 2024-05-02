@@ -148,7 +148,7 @@ defineExpose({
 .body {
 	flex: 1;
 	overflow: auto;
-	background: var(--panel);
+	background: #fff;
 	container-type: size;
 }
 </style>

@@ -199,7 +199,7 @@ onMounted(async () => {
 <style lang="scss" module>
 
 .filePreviewRoot {
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 	// MkMediaList 内の上部マージン 4px
 	padding: calc(1rem - 4px) 1rem 1rem;

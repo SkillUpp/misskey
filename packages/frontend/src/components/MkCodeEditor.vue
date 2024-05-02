@@ -161,7 +161,7 @@ watch(v, newValue => {
 	border-radius: 6px;
 	padding: 0;
 	color: var(--fg);
-	border: solid 1px var(--panel);
+	border: solid 1px #fff;
 	transition: border-color 0.1s ease-out;
 	&:hover {
 		border-color: var(--inputBorderHover) !important;

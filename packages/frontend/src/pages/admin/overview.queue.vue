@@ -117,7 +117,7 @@ onUnmounted(() => {
 			> .chart {
 				min-width: 0;
 				padding: 16px;
-				background: var(--panel);
+				background: #fff;
 				border-radius: var(--radius);
 
 				> .title {

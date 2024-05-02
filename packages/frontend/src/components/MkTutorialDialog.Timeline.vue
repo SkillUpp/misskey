@@ -34,7 +34,7 @@ import { i18n } from '@/i18n.js';
 .exampleNoteRoot {
 	border-radius: var(--radius);
 	border: var(--panelBorder);
-	background: var(--panel);
+	background: #fff;
 }
 
 .divider {

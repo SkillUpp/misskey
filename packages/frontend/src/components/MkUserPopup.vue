@@ -227,7 +227,7 @@ onMounted(() => {
 	top: 8px;
 	right: 44px;
 	padding: 6px;
-	background: var(--panel);
+	background: #fff;
 	border-radius: 999px;
 }
 

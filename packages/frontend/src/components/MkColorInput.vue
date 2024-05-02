@@ -99,8 +99,8 @@ const onInput = () => {
 	font-weight: normal;
 	font-size: 1em;
 	color: var(--fg);
-	background: var(--panel);
-	border: solid 1px var(--panel);
+	background: #fff;
+	border: solid 1px #fff;
 	border-radius: 6px;
 	outline: none;
 	box-shadow: none;

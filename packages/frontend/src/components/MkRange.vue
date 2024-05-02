@@ -186,8 +186,8 @@ const onMousedown = (ev: MouseEvent | TouchEvent) => {
 
 	> .body {
 		padding: 7px 12px;
-		background: var(--panel);
-		border: solid 1px var(--panel);
+		background: #fff;
+		border: solid 1px #fff;
 		border-radius: 6px;
 
 		> .container {

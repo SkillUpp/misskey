@@ -81,7 +81,7 @@ document.documentElement.style.overflowY = 'scroll';
 	max-width: 60px;
 	margin: auto;
 	border-radius: 100%;
-	background: var(--panel);
+	background: #fff;
 	color: var(--fg);
 	right: var(--margin);
 	bottom: calc(var(--margin) + env(safe-area-inset-bottom, 0px));

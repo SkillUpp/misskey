@@ -423,7 +423,7 @@ body {
 	contain: strict;
 	overflow: auto;
 	overscroll-behavior: contain;
-	background: var(--navBg);
+	background: #fff;
 }
 
 .nav {
@@ -451,7 +451,7 @@ body {
 	max-width: 60px;
 	margin: auto;
 	border-radius: 100%;
-	background: var(--panel);
+	background: #fff;
 	color: var(--fg);
 
 	&:hover {

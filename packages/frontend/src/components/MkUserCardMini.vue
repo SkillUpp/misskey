@@ -49,7 +49,7 @@ $bodyInfoHieght: 16px;
 	display: flex;
 	align-items: center;
 	padding: 16px;
-	background: var(--panel);
+	background: #fff;
 	border-radius: 8px;
 }
 

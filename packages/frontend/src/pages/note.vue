@@ -184,6 +184,6 @@ definePageMetadata(() => ({
 
 .note {
 	border-radius: var(--radius);
-	background: var(--panel);
+	background: #fff;
 }
 </style>

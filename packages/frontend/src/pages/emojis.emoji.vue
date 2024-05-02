@@ -58,7 +58,7 @@ function menu(ev) {
 	align-items: center;
 	padding: 12px;
 	text-align: left;
-	background: var(--panel);
+	background: #fff;
 	border-radius: 8px;
 
 	&:hover {

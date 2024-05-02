@@ -30,7 +30,7 @@ import { $i } from '@/account.js';
 <style lang="scss" module>
 .root {
 	font-size: 15px;
-	background: var(--panel);
+	background: #fff;
 }
 
 .item {

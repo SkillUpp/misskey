@@ -256,7 +256,7 @@ onMounted(() => {
 				flex: 1;
 				min-width: 0;
 				position: relative;
-				background: var(--panel);
+				background: #fff;
 				border-radius: var(--radius);
 				padding: 24px;
 				max-height: 300px;

@@ -62,11 +62,11 @@ const collapsed = ref(isLong);
 			left: 0;
 			width: 100%;
 			height: 64px;
-			background: linear-gradient(0deg, var(--panel), var(--X15));
+			background: linear-gradient(0deg, #fff, var(--X15));
 
 			> .fadeLabel {
 				display: inline-block;
-				background: var(--panel);
+				background: #fff;
 				padding: 6px 10px;
 				font-size: 0.8em;
 				border-radius: 999px;

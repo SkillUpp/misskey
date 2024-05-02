@@ -113,7 +113,7 @@ function more(ev: MouseEvent) {
 	overflow: auto;
 	overflow-x: clip;
 	overscroll-behavior: contain;
-	background: var(--navBg);
+	background: #fff;
 	contain: strict;
 	display: flex;
 	flex-direction: column;

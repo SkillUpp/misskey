@@ -46,7 +46,7 @@ onMounted(() => {
 	max-width: 480px;
 	box-sizing: border-box;
 	text-align: center;
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 }
 

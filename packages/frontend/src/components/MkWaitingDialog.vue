@@ -47,7 +47,7 @@ watch(() => props.showing, () => {
 	padding: 32px;
 	box-sizing: border-box;
 	text-align: center;
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 	width: 250px;
 

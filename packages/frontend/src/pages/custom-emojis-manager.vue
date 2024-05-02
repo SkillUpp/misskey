@@ -329,7 +329,7 @@ definePageMetadata(() => ({
 				align-items: center;
 				padding: 11px;
 				text-align: left;
-				border: solid 1px var(--panel);
+				border: solid 1px #fff;
 
 				&:hover {
 					border-color: var(--inputBorderHover);

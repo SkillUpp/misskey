@@ -92,7 +92,7 @@ const exampleNote = reactive<Misskey.entities.Note>({
 .exampleRoot {
 	border-radius: var(--radius);
 	border: var(--panelBorder);
-	background: var(--panel);
+	background: #fff;
 }
 
 .divider {

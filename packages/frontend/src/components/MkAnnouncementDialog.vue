@@ -83,7 +83,7 @@ onMounted(() => {
 	min-width: 320px;
 	max-width: 480px;
 	box-sizing: border-box;
-	background: var(--panel);
+	background: #fff;
 	border-radius: var(--radius);
 }
 

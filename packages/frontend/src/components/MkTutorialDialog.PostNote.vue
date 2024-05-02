@@ -82,7 +82,7 @@ const exampleCWNote = reactive<Misskey.entities.Note>({
 	max-width: none!important;
 	border-radius: var(--radius);
 	border: var(--panelBorder);
-	background: var(--panel);
+	background: #fff;
 }
 
 .divider {

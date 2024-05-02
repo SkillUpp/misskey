@@ -128,7 +128,7 @@ const vote = async (id) => {
 	position: relative;
 	display: inline-block;
 	padding: 3px 5px;
-	background: var(--panel);
+	background: #fff;
 	border-radius: 3px;
 }
 

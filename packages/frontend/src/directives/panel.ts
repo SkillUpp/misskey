@@ -23,7 +23,7 @@ export default {
 		if (parentBg === myBg) {
 			src.style.backgroundColor = 'var(--bg)';
 		} else {
-			src.style.backgroundColor = 'var(--panel)';
+			src.style.backgroundColor = '#fff';
 		}
 	},
 } as Directive;

@@ -106,7 +106,7 @@ function removeReaction(emoji) {
 .exampleNoteRoot {
 	border-radius: var(--radius);
 	border: var(--panelBorder);
-	background: var(--panel);
+	background: #fff;
 }
 
 .divider {
