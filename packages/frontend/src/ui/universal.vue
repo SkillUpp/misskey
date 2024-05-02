@@ -34,17 +34,13 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 	<div v-if="isMobile" ref="navFooter" :class="$style.nav">
 		<button :class="$style.navButton" class="_button" @click="drawerMenuShowing = true">
-			<i
-				:class="$style.navButtonIcon" class="ti ti-menu-2"
-			></i><span
+			<i :class="$style.navButtonIcon" class="ti ti-menu-2"></i><span
 				v-if="menuIndicated"
 				:class="$style.navButtonIndicator"
 			><i class="_indicatorCircle"></i></span>
 		</button>
 		<button :class="$style.navButton" class="_button" @click="isRoot ? top() : mainRouter.push('/')">
-			<i
-				:class="$style.navButtonIcon" class="ti ti-home"
-			></i>
+			<i :class="$style.navButtonIcon" class="ti ti-home"></i>
 		</button>
 		<button :class="$style.navButton" class="_button" @click="mainRouter.push('/my/notifications')">
 			<i :class="$style.navButtonIcon" class="ti ti-bell"></i>
@@ -55,16 +51,10 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</span>
 		</button>
 		<button :class="$style.navButton" class="_button" @click="widgetsShowing = true">
-			<i
-				:class="$style.navButtonIcon"
-				class="ti ti-apps"
-			></i>
+			<i :class="$style.navButtonIcon" class="ti ti-apps"></i>
 		</button>
 		<button :class="$style.postButton" class="_button" @click="os.post()">
-			<i
-				:class="$style.navButtonIcon"
-				class="ti ti-pencil"
-			></i>
+			<i :class="$style.navButtonIcon" class="ti ti-pencil"></i>
 		</button>
 	</div>
 
@@ -111,9 +101,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	>
 		<div v-if="widgetsShowing" :class="$style.widgetsDrawer">
 			<button class="_button" :class="$style.widgetsCloseButton" @click="widgetsShowing = false">
-				<i
-					class="ti ti-x"
-				></i>
+				<i class="ti ti-x"></i>
 			</button>
 			<XWidgets/>
 		</div>
@@ -366,7 +354,7 @@ $widgets-hide-threshold: 1090px;
 	overflow: auto;
 	overflow-y: scroll;
 	overscroll-behavior: contain;
-	background: var(--bg);
+	background: rgb(249, 249, 249);
 }
 
 .widgets {
