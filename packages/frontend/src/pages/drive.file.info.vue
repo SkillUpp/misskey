@@ -266,8 +266,7 @@ onMounted(async () => {
 	}
 
 	&:hover {
-		background-color: #fff
-
+		background-color: #fff;
 		>.fileName,
 		>.fileNameEditIcon {
 			visibility: visible;
@@ -296,7 +295,7 @@ onMounted(async () => {
 
 	&:hover {
 		color: #20d9bc;
-		background-color: #fff
+		background-color: #fff;
 
 		.fileAltEditIcon {
 			color: #20d9bc;
