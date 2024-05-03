@@ -837,7 +837,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 
 .quoteNote {
 	padding: 16px;
-	border: dashed 1px #20d9bc;
+	// border: dashed 1px #20d9bc;
 	border-radius: 8px;
 	overflow: clip;
 }
