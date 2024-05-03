@@ -122,7 +122,7 @@ const bannerStyle = computed(() => {
 			font-size: 14px;
 			background: rgba(0, 0, 0, 0.7);
 			border-radius: 6px;
-			color: #e8e8e8;
+			color: #f5f5f5;
 			div {
 				margin-top: 4px;
 			}

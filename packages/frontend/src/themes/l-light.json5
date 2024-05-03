@@ -11,7 +11,7 @@
 		bg: '#f9f9f9',
 		fg: '#636363',
 		fgOnWhite: '@accent',
-		divider: '#e8e8e8',
+		divider: '#f5f5f5',
 		header: ':alpha<0.7<@panel',
 		navBg: '#fff',
 		panel: '#fff',

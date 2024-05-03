@@ -37,19 +37,22 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</div>
 	<div v-if="fillter" :class="$style.fillter">
 		<div :class="$style.fillter_type">
-			<select :class="$style.select" @change="handleChangeSelect">
+			<MkSelect v-model="typeValue" small @update:modelValue="handleChangeSelect">
+				<!-- <template #label>{{ typeValue }}</template> -->
+				<!-- <select :class="$style.select" @change="handleChangeSelect"> -->
 				<option value="all">All</option>
 				<option value="hot">Hot</option>
 				<option value="new">New</option>
 				<option value="top">Top</option>
-			</select>
+			<!-- </select> -->
+			</MkSelect>
 		</div>
 		<div :class="$style.fillter_type">
-			<select :class="$style.select" @change="handleChangeSelect">
+			<MkSelect v-model="layoutValue" small @update:modelValue="handleChangeLayout">
 				<option value="view">View</option>
 				<option value="card">Card</option>
 				<option value="compact">Compact</option>
-			</select>
+			</MkSelect>
 		</div>
 	</div>
 </div>
@@ -74,9 +77,10 @@ export type Tab = {
 </script>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, watch, nextTick, shallowRef } from 'vue';
+import { onMounted, onUnmounted, watch, nextTick, shallowRef, ref } from 'vue';
 import { All } from '../MkAchievements.stories.impl';
 import { defaultStore } from '@/store.js';
+import MkSelect from '@/components/MkSelect.vue';
 
 const props = withDefaults(defineProps<{
 	tabs?: Tab[];
@@ -92,6 +96,8 @@ const emit = defineEmits<{
 	(ev: 'tabClick', key: string);
 }>();
 
+const typeValue = ref('all');
+const layoutValue = ref('view');
 const el = shallowRef<HTMLElement | null>(null);
 const tabRefs: Record<string, HTMLElement | null> = {};
 const tabHighlightEl = shallowRef<HTMLElement | null>(null);
@@ -117,11 +123,31 @@ function onTabClick(t: Tab, ev: MouseEvent): void {
 	}
 }
 
-function handleChangeSelect(event) {
-	const val = event.target.value;
+function handleChangeSelect(val) {
+	// const val = event.target.value;
+	typeValue.value = val;
 	emit('tabClick', val);
 	if (val) {
 		emit('update:tab', val);
+	}
+}
+
+function handleChangeLayout(val) {
+	layoutValue.value = val;
+	// emit('tabClick', val);
+	// if (val) {
+	// 	emit('update:tab', val);
+	// }
+}
+
+function handleChangeTab(key: string): void {
+	emit('update:tab', key);
+}
+
+function handleChangeTabByIndex(index: number): void {
+	const tab = props.tabs[index];
+	if (tab) {
+		emit('update:tab', tab.key);
 	}
 }
 
@@ -307,12 +333,12 @@ onUnmounted(() => {
 		}
 
 		.select {
-			width: 70px;
-			height: 32px;
+			height: 36px;
 			padding: 0 6px;
 			outline: none;
 			border-radius: 4px;
 			color: #576f76;
+			border-color: none;
 
 			option {
 				color: #636363;

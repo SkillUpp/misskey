@@ -179,7 +179,7 @@ const rejectFollowRequest = () => {
 	position: relative;
 	box-sizing: border-box;
 	padding: 24px 32px;
-	font-size: 16px;
+	font-size: 0.9em;
 	overflow-wrap: break-word;
 	display: flex;
 	contain: content;
@@ -227,13 +227,10 @@ const rejectFollowRequest = () => {
 .subIcon {
 	position: absolute;
 	z-index: 1;
-	top: 2px;
-	left: 50%;
 	bottom: -2px;
 	right: -2px;
 	width: 20px;
 	height: 20px;
-	transform: translateX(-50%);
 	box-sizing: border-box;
 	border-radius: 100%;
 	background: #fff;
@@ -304,9 +301,6 @@ const rejectFollowRequest = () => {
 	display: flex;
 	align-items: baseline;
 	white-space: nowrap;
-	span {
-		font-weight: 800;
-	}
 }
 
 .headerName {
@@ -314,12 +308,11 @@ const rejectFollowRequest = () => {
 	white-space: nowrap;
 	min-width: 0;
 	overflow: hidden;
-
 }
 
 .headerTime {
 	margin-left: auto;
-	font-size: 14px;
+	font-size: 0.9em;
 }
 
 .text {

@@ -79,10 +79,6 @@ const queue = ref(0);
 const srcWhenNotSignin = ref<'local' | 'global'>(isLocalTimelineAvailable ? 'local' : 'global');
 const src = computed<'home' | 'local' | 'social' | 'global' | 'hot' | 'new' | 'top' | `list:${string}`>({
 	get: () => {
-		console.log($i, '$i');
-		console.log(defaultStore.reactiveState.tl.value.src, 'defaultStore.reactiveState.tl.value.src');
-		console.log(defaultStore.state.tl.src, 'defaultStore.state.tl.src');
-
 		return ($i ? defaultStore.reactiveState.tl.value.src : srcWhenNotSignin.value);
 	},
 	set: (x) => {

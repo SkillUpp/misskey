@@ -60,6 +60,8 @@ const emit = defineEmits<{
 const slots = useSlots();
 
 const { modelValue, autofocus } = toRefs(props);
+console.log(modelValue, 'modelValue');
+
 const v = ref(modelValue.value);
 const focused = ref(false);
 const opening = ref(false);

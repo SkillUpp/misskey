@@ -292,7 +292,7 @@ function more(ev: MouseEvent) {
 				right: 0;
 				bottom: 0;
 				border-radius: 999px;
-				background: #e8e8e8;
+				background: #f5f5f5;
 			}
 		}
 	}
