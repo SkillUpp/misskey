@@ -176,7 +176,7 @@ async function updateAgreeNote(v: boolean) {
 		width: 32px;
 		height: 32px;
 		line-height: 32px;
-		background-color: #fff
+		background-color: #fff;
 		color: #20d9bc;
 		font-size: 13px;
 		font-weight: bold;
