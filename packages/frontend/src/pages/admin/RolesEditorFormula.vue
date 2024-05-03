@@ -155,7 +155,7 @@ function removeSelf() {
 	padding: 12px;
 
 	&:hover {
-		border-color: var(--accent);
+		border-color: #20d9bc;
 	}
 }
 </style>

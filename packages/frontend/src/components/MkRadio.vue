@@ -70,16 +70,16 @@ function toggle(): void {
 	}
 
 	&.checked {
-		background-color: var(--accentedBg) !important;
-		border-color: var(--accentedBg) !important;
-		color: var(--accent);
+		background-color: #fff !important;
+		border-color: #fff;
+		color: #20d9bc;
 		cursor: default !important;
 
 		> .button {
-			border-color: var(--accent);
+			border-color: #20d9bc;
 
 			&:after {
-				background-color: var(--accent);
+				background-color: #20d9bc;
 				transform: scale(1);
 				opacity: 1;
 			}

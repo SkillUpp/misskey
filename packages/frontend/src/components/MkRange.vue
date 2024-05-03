@@ -212,7 +212,7 @@ const onMousedown = (ev: MouseEvent | TouchEvent) => {
 					top: 0;
 					left: 0;
 					height: 100%;
-					background: var(--accent);
+					background: #20d9bc;
 					opacity: 0.5;
 				}
 			}
@@ -244,7 +244,7 @@ const onMousedown = (ev: MouseEvent | TouchEvent) => {
 				width: $thumbWidth;
 				height: $thumbHeight;
 				cursor: grab;
-				background: var(--accent);
+				background: #20d9bc;
 				border-radius: 999px;
 
 				&:hover {

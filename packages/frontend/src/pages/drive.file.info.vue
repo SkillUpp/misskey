@@ -230,8 +230,8 @@ onMounted(async () => {
 
 		&:hover,
 		&:focus-visible {
-			background-color: var(--accentedBg);
-			color: var(--accent);
+			background-color: #fff;
+			color: #20d9bc;
 			text-decoration: none;
 		}
 
@@ -266,12 +266,12 @@ onMounted(async () => {
 	}
 
 	&:hover {
-		background-color: var(--accentedBg);
+		background-color: #fff
 
 		>.fileName,
 		>.fileNameEditIcon {
 			visibility: visible;
-			color: var(--accent);
+			color: #20d9bc;
 		}
 	}
 }
@@ -295,11 +295,11 @@ onMounted(async () => {
 	}
 
 	&:hover {
-		color: var(--accent);
-		background-color: var(--accentedBg);
+		color: #20d9bc;
+		background-color: #fff
 
 		.fileAltEditIcon {
-			color: var(--accent);
+			color: #20d9bc;
 			visibility: visible;
 		}
 	}

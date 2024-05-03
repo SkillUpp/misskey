@@ -82,9 +82,14 @@ const collapsed = ref(isLong);
 	}
 }
 
+summary {
+	margin-top: 4px;
+	font-size: 14px;
+}
+
 .reply {
 	margin-right: 6px;
-	color: var(--accent);
+	color: #20d9bc;
 }
 
 .rp {

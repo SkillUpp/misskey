@@ -77,7 +77,7 @@ function close() {
 	text-align: center;
 	padding-top: 25px;
 	width: 100px;
-	color: var(--accent);
+	color: #20d9bc;
 }
 @media (max-width: 500px) {
 	.icon {

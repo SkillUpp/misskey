@@ -365,7 +365,7 @@ $widgets-hide-threshold: 1090px;
 	overflow: auto;
 	padding: var(--margin) var(--margin) calc(var(--margin) + env(safe-area-inset-bottom, 0px));
 	border-left: solid 0.5px var(--divider);
-	background: var(--bg);
+	background: #fff;
 
 	@media (max-width: $widgets-hide-threshold) {
 		display: none;
@@ -401,7 +401,7 @@ $widgets-hide-threshold: 1090px;
 	box-sizing: border-box;
 	overflow: auto;
 	overscroll-behavior: contain;
-	background: var(--bg);
+	background: #fff;
 }
 
 .widgetsCloseButton {

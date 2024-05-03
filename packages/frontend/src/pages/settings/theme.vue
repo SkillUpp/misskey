@@ -231,7 +231,7 @@ definePageMetadata(() => ({
 
 			> .before {
 				left: -70px;
-				color: var(--accent);
+				color: #20d9bc;
 			}
 
 			> .after {
@@ -358,7 +358,7 @@ definePageMetadata(() => ({
 				}
 
 				> .after {
-					color: var(--accent);
+					color: #20d9bc;
 				}
 
 				.toggle__handler {

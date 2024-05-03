@@ -169,7 +169,7 @@ watch(v, newValue => {
 }
 
 .focused.codeEditorRoot {
-	border-color: var(--accent) !important;
+	border-color: #20d9bc !important;
 	border-radius: 6px;
 }
 
@@ -210,6 +210,6 @@ watch(v, newValue => {
 }
 
 .textarea::selection {
-	color: var(--bg);
+	color: #fff;
 }
 </style>

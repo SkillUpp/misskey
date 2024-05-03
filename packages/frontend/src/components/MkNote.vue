@@ -19,7 +19,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<div v-if="isRenote" :class="$style.renote">
 		<div v-if="note.channel" :class="$style.colorBar" :style="{ background: note.channel.color }"></div>
 		<MkAvatar :class="$style.renoteAvatar" :user="note.user" link preview/>
-		<i class="ti ti-repeat" style="margin-right: 4px;"></i>
+		<i class="ti ti-repeat green" style="margin-right: 4px;"></i>
 		<I18n :src="i18n.ts.renotedBy" tag="span" :class="$style.renoteText">
 			<template #user>
 				<MkA v-user-preview="note.userId" :class="$style.renoteUserName" :to="userPage(note.user)">
@@ -267,7 +267,7 @@ const renoteCollapsed = ref(
 	defaultStore.state.collapseRenotes && isRenote && (
 		($i && ($i.id === note.value.userId || $i.id === appearNote.value.userId)) || // `||` must be `||`! See https://github.com/misskey-dev/misskey/issues/13131
 		(appearNote.value.myReaction != null)
-	)
+	),
 );
 
 /* Overload FunctionにLintが対応していないのでコメントアウト
@@ -640,7 +640,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 	padding: 16px 32px 8px 32px;
 	line-height: 28px;
 	white-space: pre;
-	color: var(--renote);
+	color: #20d9bc;
 
 	& + .article {
 		padding-top: 8px;
@@ -660,10 +660,14 @@ function emitUpdReaction(emoji: string, delta: number) {
 }
 
 .renoteText {
+	color: #20d9bc;
 	overflow: hidden;
 	flex-shrink: 1;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+.green {
+	color: #20d9bc;
 }
 
 .renoteUserName {
@@ -672,10 +676,11 @@ function emitUpdReaction(emoji: string, delta: number) {
 
 .renoteInfo {
 	margin-left: auto;
-	font-size: 0.9em;
+	font-size: 14px;
 }
 
 .renoteTime {
+	font-size: 14px;
 	flex-shrink: 0;
 	color: inherit;
 }
@@ -705,7 +710,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 	flex-shrink: 1;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	font-size: 90%;
+	font-size: 16px;
 	opacity: 0.7;
 	cursor: pointer;
 
@@ -795,17 +800,19 @@ function emitUpdReaction(emoji: string, delta: number) {
 	display: inline-block;
 	background: #fff;
 	padding: 6px 10px;
-	font-size: 0.8em;
+	font-size: 16px;
 	border-radius: 999px;
 	box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
 }
 
 .text {
+	color: #636363;
+	font-size: 16px;
 	overflow-wrap: break-word;
 }
 
 .replyIcon {
-	color: var(--accent);
+	color: #636363;
 	margin-right: 0.5em;
 }
 
@@ -830,7 +837,7 @@ function emitUpdReaction(emoji: string, delta: number) {
 
 .quoteNote {
 	padding: 16px;
-	border: dashed 1px var(--renote);
+	border: dashed 1px #20d9bc;
 	border-radius: 8px;
 	overflow: clip;
 }

@@ -439,7 +439,7 @@ onDeactivated(() => {
 	opacity: 0;
 	transition: opacity .4s ease-in-out;
 
-	background: var(--accent);
+	background: #20d9bc;
 	color: #fff;
 	padding: 1rem;
 	border-radius: 99rem;
@@ -506,7 +506,7 @@ onDeactivated(() => {
 		font-size: 1.05rem;
 
 		&:hover {
-			background-color: var(--accent);
+			background-color: #20d9bc;
 		}
 	}
 }

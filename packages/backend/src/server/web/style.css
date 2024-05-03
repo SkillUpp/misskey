@@ -5,7 +5,7 @@
  */
 
 html {
-	background-color: var(--bg);
+	background-color: #fff;
 	color: var(--fg);
 }
 
@@ -17,7 +17,7 @@ html {
 	width: 100vw;
 	height: 100vh;
 	cursor: wait;
-	background-color: var(--bg);
+	background-color: #fff;
 	opacity: 1;
 	transition: opacity 0.5s ease;
 }
@@ -45,7 +45,7 @@ html {
 	width: 28px;
 	height: 28px;
 	transform: translateY(70px);
-	color: var(--accent);
+	color: #20d9bc;
 }
 #splashSpinner > .spinner {
 	position: absolute;

@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	</button>
 	<Suspense>
 		<template #fallback>
-			<MkLoading />
+			<MkLoading/>
 		</template>
 		<XCode v-if="show && lang" :code="code" :lang="lang"/>
 		<pre v-else-if="show" :class="$style.codeBlockFallbackRoot"><code :class="$style.codeBlockFallbackCode">{{ code }}</code></pre>
@@ -66,13 +66,12 @@ function copy() {
 .codeBlockFallbackRoot {
 	display: block;
 	overflow-wrap: anywhere;
-	background: var(--bg);
+	background: #fff;
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
 	border-radius: 8px;
 }
-
 
 .codePlaceholderRoot {
 	display: block;
@@ -89,7 +88,7 @@ function copy() {
 	padding: 24px;
 	margin-top: 4px;
 	color: var(--fg);
-	background: var(--bg);
+	background: #fff;
 }
 
 .codePlaceholderContainer {

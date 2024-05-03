@@ -636,8 +636,8 @@ defineExpose({
 			border-top: solid 0.5px var(--divider);
 
 			&.active {
-				border-top: solid 1px var(--accent);
-				color: var(--accent);
+				border-top: solid 1px #20d9bc;
+				color: #20d9bc;
 			}
 		}
 	}
@@ -683,7 +683,7 @@ defineExpose({
 				cursor: pointer;
 
 				&:hover {
-					color: var(--accent);
+					color: #20d9bc;
 				}
 			}
 
@@ -710,7 +710,7 @@ defineExpose({
 					}
 
 					&:active {
-						background: var(--accent);
+						background: #20d9bc;
 						box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
 					}
 

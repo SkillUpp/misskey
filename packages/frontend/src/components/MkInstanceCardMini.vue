@@ -109,7 +109,7 @@ function getInstanceIcon(instance): string {
 	}
 
 	&:global(.gray) {
-		--c: var(--bg);
+		--c: #fff;
 		background-image: linear-gradient(45deg, var(--c) 16.67%, transparent 16.67%, transparent 50%, var(--c) 50%, var(--c) 66.67%, transparent 66.67%, transparent 100%);
 		background-size: 16px 16px;
 	}

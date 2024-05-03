@@ -96,8 +96,8 @@ definePageMetadata(() => ({
 
 .itemNumber {
 	display: flex;
-	background-color: var(--accentedBg);
-	color: var(--accent);
+	background-color: #fff;
+	color: #20d9bc;
 	font-size: 14px;
 	font-weight: bold;
 	width: 28px;

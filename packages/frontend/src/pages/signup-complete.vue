@@ -81,7 +81,7 @@ place-content: center;
 	padding: 16px;
 	text-align: center;
 	font-size: 26px;
-	background-color: var(--accentedBg);
-	color: var(--accent);
+	background-color: #fff;
+	color: #20d9bc;
 }
 </style>

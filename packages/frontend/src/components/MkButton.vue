@@ -165,7 +165,7 @@ function onMousedown(evt: MouseEvent): void {
 	&.primary {
 		font-weight: bold;
 		color: var(--fgOnAccent) !important;
-		background: var(--accent);
+		background: #20d9bc;
 
 		&:not(:disabled):hover {
 			// background: var(--X8);

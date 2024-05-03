@@ -411,7 +411,7 @@ onBeforeUnmount(() => {
 	}
 
 	&[data-selected='true'] {
-		background: var(--accent);
+		background: #20d9bc;
 		color: #fff !important;
 	}
 

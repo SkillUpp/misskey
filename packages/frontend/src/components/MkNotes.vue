@@ -62,7 +62,7 @@ defineExpose({
 
 	&:not(.noGap) {
 		> .notes {
-			background: var(--bg);
+			background: #fff;
 
 			.note {
 				background: #fff;

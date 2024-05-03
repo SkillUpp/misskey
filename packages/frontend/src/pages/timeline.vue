@@ -8,7 +8,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<template #header>
 		<MkPageHeader
 			v-model:tab="src" :actions="headerActions" :tabs="$i ? headerTabs : headerTabsWhenNotLogin"
-			:displayMyAvatar="true" @update:tab="handleChangeTab"
+			:displayMyAvatar="true"
+			:fillter="true"
 		/>
 	</template>
 	<MkSpacer :contentMax="800">
@@ -76,18 +77,24 @@ const rootEl = shallowRef<HTMLElement>();
 
 const queue = ref(0);
 const srcWhenNotSignin = ref<'local' | 'global'>(isLocalTimelineAvailable ? 'local' : 'global');
-const src = computed<'home' | 'local' | 'social' | 'global' | `list:${string}`>({
-	get: () => ($i ? defaultStore.reactiveState.tl.value.src : srcWhenNotSignin.value),
-	set: (x) => saveSrc(x),
+const src = computed<'home' | 'local' | 'social' | 'global' | 'hot' | 'new' | 'top' | `list:${string}`>({
+	get: () => {
+		console.log($i, '$i');
+		console.log(defaultStore.reactiveState.tl.value.src, 'defaultStore.reactiveState.tl.value.src');
+		console.log(defaultStore.state.tl.src, 'defaultStore.state.tl.src');
+
+		return ($i ? defaultStore.reactiveState.tl.value.src : srcWhenNotSignin.value);
+	},
+	set: (x) => {
+		console.log(x, 'xxx');
+
+		saveSrc(x);
+	},
 });
 const withRenotes = computed<boolean>({
 	get: () => defaultStore.reactiveState.tl.value.filter.withRenotes,
 	set: (x) => saveTlFilter('withRenotes', x),
 });
-
-const handleChangeTab = (val) => {
-	console.log(val, 'val12345');
-};
 
 // computed内での無限ループを防ぐためのフラグ
 const localSocialTLFilterSwitchStore = ref<'withReplies' | 'onlyFiles' | false>('withReplies');
@@ -299,12 +306,13 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 	title: l.name,
 	icon: 'ti ti-star',
 	iconOnly: false,
-}))), {
-	key: 'hot',
-	title: 'Hot',
-	// icon: 'ti ti-hot',
-	iconOnly: false,
-},
+}))),
+	// {
+	// 	key: 'hot',
+	// 	title: 'Hot',
+	// 	// icon: 'ti ti-hot',
+	// 	iconOnly: false,
+	// },
 																																			{
 																																				key: 'social',
 																																				title: i18n.ts._timelines.social,
@@ -368,8 +376,9 @@ definePageMetadata(() => ({
 }
 
 .tl {
-	background: var(--bg);
+	background: #fff;
 	border-radius: var(--radius);
 	overflow: clip;
 }
+
 </style>

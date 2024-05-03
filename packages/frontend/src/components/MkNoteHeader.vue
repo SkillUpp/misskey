@@ -61,7 +61,7 @@ const mock = inject<boolean>('mock', false);
 	margin: 0 .5em 0 0;
 	padding: 0;
 	overflow: hidden;
-	font-size: 1em;
+	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
 	text-overflow: ellipsis;
@@ -84,6 +84,7 @@ const mock = inject<boolean>('mock', false);
 .username {
 	flex-shrink: 9999999;
 	margin: 0 .5em 0 0;
+	font-size: 14px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -91,7 +92,8 @@ const mock = inject<boolean>('mock', false);
 .info {
 	flex-shrink: 0;
 	margin-left: auto;
-	font-size: 0.9em;
+	font-size: 14px;
+	color: #636363;
 }
 
 .badgeRoles {

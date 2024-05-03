@@ -312,11 +312,11 @@ onBeforeUnmount(() => {
 	}
 
 	&:not(:disabled):hover {
-		color: var(--accent);
+		color: #20d9bc;
 		text-decoration: none;
 
 		&:before {
-			background: var(--accentedBg);
+			background: #fff;
 		}
 	}
 
@@ -346,7 +346,7 @@ onBeforeUnmount(() => {
 		opacity: 1;
 
 		&:before {
-			background: var(--accent) !important;
+			background: #20d9bc !important;
 		}
 	}
 
@@ -377,11 +377,11 @@ onBeforeUnmount(() => {
 		cursor: default;
 
 		&.childShowing {
-			color: var(--accent);
+			color: #20d9bc;
 			text-decoration: none;
 
 			&:before {
-				background: var(--accentedBg);
+				background: #fff
 			}
 		}
 	}

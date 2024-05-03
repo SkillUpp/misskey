@@ -150,8 +150,8 @@ async function updateAgreeNote(v: boolean) {
 	padding: 16px;
 	text-align: center;
 	font-size: 26px;
-	background-color: var(--accentedBg);
-	color: var(--accent);
+	background-color: #fff;
+	color: #20d9bc;
 }
 
 .rules {
@@ -176,8 +176,8 @@ async function updateAgreeNote(v: boolean) {
 		width: 32px;
 		height: 32px;
 		line-height: 32px;
-		background-color: var(--accentedBg);
-		color: var(--accent);
+		background-color: #fff
+		color: #20d9bc;
 		font-size: 13px;
 		font-weight: bold;
 		align-items: center;

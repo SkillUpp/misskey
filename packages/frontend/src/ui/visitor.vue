@@ -109,7 +109,7 @@ const announcements = {
 	limit: 10,
 };
 
-const isTimelineAvailable = ref(instance.policies?.ltlAvailable || instance.policies?.gtlAvailable);
+const isTimelineAvailable = ref(instance.policies.ltlAvailable || instance.policies.gtlAvailable);
 
 const showMenu = ref(false);
 const isDesktop = ref(window.innerWidth >= DESKTOP_THRESHOLD);
@@ -194,7 +194,7 @@ defineExpose({
 		left: 0;
 		width: 500px;
 		height: 100vh;
-		background: var(--accent);
+		background: #20d9bc;
 
 		> .banner {
 			position: absolute;

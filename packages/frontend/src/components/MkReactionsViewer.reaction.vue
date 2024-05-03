@@ -208,12 +208,12 @@ if (!mock) {
 	}
 
 	&.reacted, &.reacted:hover {
-		background: var(--accentedBg);
-		color: var(--accent);
-		box-shadow: 0 0 0 1px var(--accent) inset;
+		background: #fff;
+		color: #20d9bc;
+		box-shadow: 0 0 0 1px #20d9bc inset;
 
 		> .count {
-			color: var(--accent);
+			color: #20d9bc;
 		}
 
 		> .icon {

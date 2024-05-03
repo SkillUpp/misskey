@@ -333,10 +333,10 @@ function onDrop(ev) {
 	}
 
 	&.paged {
-		background: var(--bg) !important;
+		background: #fff !important;
 
 		> .body {
-			background: var(--bg) !important;
+			background: #fff !important;
 			overflow-y: scroll !important;
 
 			&::-webkit-scrollbar-track {
@@ -368,7 +368,7 @@ function onDrop(ev) {
 	left: 12px;
 	width: 3px;
 	height: calc(100% - 24px);
-	background: var(--accent);
+	background: #20d9bc;
 	border-radius: 999px;
 }
 
@@ -422,7 +422,7 @@ function onDrop(ev) {
 	overscroll-behavior-y: contain;
 	box-sizing: border-box;
 	container-type: size;
-	background-color: var(--bg);
+	background-color: #fff;
 
 	&::-webkit-scrollbar-track {
 		background: #fff;

@@ -224,7 +224,7 @@ function exploreOtherServers() {
 .statsItemCount {
 	font-weight: bold;
 	font-size: 1.2em;
-	color: var(--accent);
+	color: #20d9bc;
 }
 
 .tl {

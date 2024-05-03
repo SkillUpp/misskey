@@ -83,7 +83,7 @@ function afterLeave(element: Element) {
 
 onMounted(() => {
 	function getParentBg(el?: HTMLElement | null): string {
-		if (el == null || el.tagName === 'BODY') return 'var(--bg)';
+		if (el == null || el.tagName === 'BODY') return '#fff';
 		const background = el.style.background || el.style.backgroundColor;
 		if (background) {
 			return background;

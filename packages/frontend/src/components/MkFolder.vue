@@ -148,7 +148,7 @@ onMounted(() => {
 	}
 
 	&.active {
-		color: var(--accent);
+		color: #20d9bc;
 		background: var(--buttonHoverBg);
 	}
 
@@ -211,7 +211,7 @@ onMounted(() => {
 	container-type: inline-size;
 
 	&.bgSame {
-		background: var(--bg);
+		background: #fff;
 	}
 }
 </style>

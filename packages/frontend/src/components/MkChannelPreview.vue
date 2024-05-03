@@ -119,10 +119,13 @@ const bannerStyle = computed(() => {
 			bottom: 16px;
 			right: 16px;
 			padding: 8px 12px;
-			font-size: 80%;
+			font-size: 14px;
 			background: rgba(0, 0, 0, 0.7);
 			border-radius: 6px;
-			color: #fff;
+			color: #e8e8e8;
+			div {
+				margin-top: 4px;
+			}
 		}
 
 		> .sensitiveIndicator {
@@ -196,8 +199,8 @@ const bannerStyle = computed(() => {
 	top: 0;
 	right: 0;
 	transform: translate(25%, -25%);
-	background-color: var(--accent);
-	border: solid var(--bg) 4px;
+	background-color: #20d9bc;
+	border: solid #fff 4px;
 	border-radius: 100%;
 	width: 1.5rem;
 	height: 1.5rem;

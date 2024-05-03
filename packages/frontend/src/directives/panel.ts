@@ -21,7 +21,7 @@ export default {
 		const myBg = getComputedStyle(document.documentElement).getPropertyValue('--panel');
 
 		if (parentBg === myBg) {
-			src.style.backgroundColor = 'var(--bg)';
+			src.style.backgroundColor = '#fff';
 		} else {
 			src.style.backgroundColor = '#fff';
 		}

@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/valid-v-for -->
 <!--
 SPDX-FileCopyrightText: syuilo and misskey-project
 SPDX-License-Identifier: AGPL-3.0-only
@@ -11,7 +12,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 		</div>
 		<div :class="$style.middle">
 			<MkA v-tooltip.noDelay.right="i18n.ts.timeline" :class="$style.item" :activeClass="$style.active" to="/" exact>
-				<i :class="$style.itemIcon" class="ti ti-home ti-fw"></i><span :class="$style.itemText">{{ i18n.ts.timeline }}</span>
+				<i :class="$style.itemIcon" class="ti ti-home ti-fw"></i>
+				<span :class="$style.itemText">{{ i18n.ts.timeline }}</span>
 			</MkA>
 			<template v-for="item in menu">
 				<div v-if="item === '-'" :class="$style.divider"></div>
@@ -275,7 +277,7 @@ function more(ev: MouseEvent) {
 		}
 
 		&:hover, &.active {
-			// color: var(--accent);
+			// color: #20d9bc;
 			color: #20d9bc;
 
 			&:before {
@@ -319,7 +321,7 @@ function more(ev: MouseEvent) {
 
 	.itemText {
 		position: relative;
-		font-size: 0.9em;
+		font-size: 16px;
 	}
 }
 
@@ -437,7 +439,7 @@ function more(ev: MouseEvent) {
 
 		&:hover, &.active {
 			text-decoration: none;
-			color: var(--accent);
+			color: #20d9bc;
 
 			&:before {
 				content: "";
@@ -451,7 +453,7 @@ function more(ev: MouseEvent) {
 				right: 0;
 				bottom: 0;
 				border-radius: 999px;
-				background: var(--accentedBg);
+				background: #fff;
 			}
 
 			> .icon,

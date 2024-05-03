@@ -48,7 +48,7 @@ const modelValue = computed({
 	background: transparent;
 	border: 0;
 	border-radius: 26px;
-	color: var(--accent);
+	color: #20d9bc;
 	display: block;
 	height: 19px;
 	margin: 0;

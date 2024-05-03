@@ -320,7 +320,7 @@ const previewable = (file: Misskey.entities.DriveFile): boolean => {
 	border-radius: var(--radius);
 	max-height: 8em;
 	overflow-y: auto;
-	text-shadow: var(--bg) 0 0 10px, var(--bg) 0 0 3px, var(--bg) 0 0 3px;
+	text-shadow: #fff 0 0 10px, #fff 0 0 3px, #fff 0 0 3px;
 	white-space: pre-line;
 }
 </style>

@@ -44,7 +44,7 @@ import { $i } from '@/account.js';
 	height: var(--height);
 	overflow: clip;
 	contain: strict;
-	background: var(--accent);
+	background: #20d9bc;
 	color: var(--fgOnAccent);
 
 	@container (max-width: 1000px) {

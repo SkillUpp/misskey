@@ -535,7 +535,7 @@ defineExpose({
 	}
 
 	&.highlighted {
-		color: var(--accent);
+		color: #20d9bc;
 	}
 }
 

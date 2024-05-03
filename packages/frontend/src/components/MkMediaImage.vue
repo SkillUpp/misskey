@@ -178,8 +178,8 @@ function showMenu(ev: MouseEvent) {
 .visible {
 	position: relative;
 	//box-shadow: 0 0 0 1px var(--divider) inset;
-	background: var(--bg);
-	background-image: linear-gradient(45deg, var(--c) 16.67%, var(--bg) 16.67%, var(--bg) 50%, var(--c) 50%, var(--c) 66.67%, var(--bg) 66.67%, var(--bg) 100%);
+	background: #fff;
+	background-image: linear-gradient(45deg, var(--c) 16.67%, #fff 16.67%, #fff 50%, var(--c) 50%, var(--c) 66.67%, #fff 66.67%, #fff 100%);
 	background-size: 16px 16px;
 }
 

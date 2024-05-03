@@ -321,7 +321,7 @@ onMounted(() => {
 		padding: var(--margin) var(--margin) calc(var(--margin) + env(safe-area-inset-bottom, 0px));
 		box-sizing: border-box;
 		overflow: auto;
-		background: var(--bg);
+		background: #fff;
 	}
 
 	> .ivnzpscs {

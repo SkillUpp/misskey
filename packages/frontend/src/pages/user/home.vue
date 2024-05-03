@@ -560,7 +560,7 @@ onUnmounted(() => {
 						text-align: center;
 
 						&.active {
-							color: var(--accent);
+							color: #20d9bc;
 						}
 
 						&:hover {
@@ -672,7 +672,7 @@ onUnmounted(() => {
 
 <style lang="scss" module>
 .tl {
-	background: var(--bg);
+	background: #fff;
 	border-radius: var(--radius);
 	overflow: clip;
 }

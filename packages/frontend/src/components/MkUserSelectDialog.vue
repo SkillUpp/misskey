@@ -199,7 +199,7 @@ onMounted(() => {
 	}
 
 	&.selected {
-		background: var(--accent);
+		background: #20d9bc;
 		color: #fff;
 	}
 }

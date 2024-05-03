@@ -143,7 +143,7 @@ definePageMetadata(() => ({
 
 .itemText {
 	position: relative;
-	font-size: 0.9em;
+	font-size: 18px;
 }
 
 .itemRemove {

@@ -77,7 +77,7 @@ onActivated(() => {
 	border-radius: 6px;
 
 	&:hover {
-		border: solid 1px var(--accent);
+		border: solid 1px #20d9bc;
 		text-decoration: none;
 	}
 }

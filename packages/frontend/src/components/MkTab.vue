@@ -34,12 +34,23 @@ export default defineComponent({
 <style lang="scss">
 .pxhvhrfw {
 	display: flex;
-	font-size: 90%;
+	align-items: center;
+	height: 56px;
+	font-size: 16px;
+	background: #fff;
+	padding: 0 24px;
+	// margin-top: -24px;
+	// margin-left: -24px;
+	// margin-right: -24px;
+	border-bottom: solid 1px var(--divider);
 
 	> button {
-		flex: 1;
-		padding: 10px 8px;
-		border-radius: 999px;
+		// flex: 1;
+		// padding: 10px 8px;
+		// border-radius: 16px;
+		padding: 16px;
+		color: #636363;
+    font-weight: 500;
 
 		&:disabled {
 			opacity: 1 !important;
@@ -47,17 +58,17 @@ export default defineComponent({
 		}
 
 		&.active {
-			color: var(--accent);
-			background: var(--accentedBg);
+			color: #20d9bc;
+			background: #fff;
+			border-bottom: 2px solid #20d9bc;
 		}
 
 		&:not(.active):hover {
-			color: var(--fgHighlighted);
-			background: var(--panelHighlight);
+			opacity: .7;
 		}
 
 		&:not(:first-child) {
-			margin-left: 8px;
+			margin-left: 36px;
 		}
 
 		> .icon {

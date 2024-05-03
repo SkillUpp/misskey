@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<li v-for="(choice, i) in poll.choices" :key="i" :class="$style.choice" @click="vote(i)">
 			<div :class="$style.bg" :style="{ 'width': `${showResult ? (choice.votes / total * 100) : 0}%` }"></div>
 			<span :class="$style.fg">
-				<template v-if="choice.isVoted"><i class="ti ti-check" style="margin-right: 4px; color: var(--accent);"></i></template>
+				<template v-if="choice.isVoted"><i class="ti ti-check" style="margin-right: 4px; color: #20d9bc;"></i></template>
 				<Mfm :text="choice.text" :plain="true"/>
 				<span v-if="showResult" style="margin-left: 4px; opacity: 0.7;">({{ i18n.tsx._poll.votesCount({ n: choice.votes }) }})</span>
 			</span>
@@ -108,7 +108,7 @@ const vote = async (id) => {
 	margin: 4px 0;
 	padding: 4px;
 	//border: solid 0.5px var(--divider);
-	background: var(--accentedBg);
+	background: #fff;
 	border-radius: 4px;
 	overflow: clip;
 	cursor: pointer;
@@ -119,7 +119,7 @@ const vote = async (id) => {
 	top: 0;
 	left: 0;
 	height: 100%;
-	background: var(--accent);
+	background: #20d9bc;
 	background: linear-gradient(90deg,var(--buttonGradateA),var(--buttonGradateB));
 	transition: width 1s ease;
 }

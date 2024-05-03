@@ -5,8 +5,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <template>
 <div v-if="show" ref="el" :class="[$style.root]">
-	<div :class="[$style.upper, { [$style.slim]: narrow, [$style.thin]: thin_ }]">
-		<div v-if="!thin_ && narrow && props.displayMyAvatar && $i" class="_button" :class="$style.buttonsLeft" @click="openAccountMenu">
+	<div :class="[$style.upper, { [$style.slim]: narrow, [$style.thin]: thin_, [$style.fillter]: fillter }]">
+		<div
+			v-if="!thin_ && narrow && props.displayMyAvatar && $i" class="_button" :class="$style.buttonsLeft"
+			@click="openAccountMenu"
+		>
 			<MkAvatar :class="$style.avatar" :user="$i"/>
 		</div>
 		<div v-else-if="!thin_ && narrow && !hideTitle" :class="$style.buttonsLeft"/>
@@ -26,16 +29,31 @@ SPDX-License-Identifier: AGPL-3.0-only
 					</div>
 				</div>
 			</div>
-			<XTabs v-if="!narrow || hideTitle" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el" @update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"/>
+			<XTabs
+				v-if="!narrow || hideTitle" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el" :fillter="fillter"
+				@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
+			/>
 		</template>
 		<div v-if="(!thin_ && narrow && !hideTitle) || (actions && actions.length > 0)" :class="$style.buttonsRight">
 			<template v-for="action in actions">
-				<button v-tooltip.noDelay="action.text" class="_button" :class="[$style.button, { [$style.highlighted]: action.highlighted }]" @click.stop="action.handler" @touchstart="preventDrag"><i :class="action.icon"></i></button>
+				<button
+					v-tooltip.noDelay="action.text" class="_button"
+					:class="[$style.button, { [$style.highlighted]: action.highlighted }]" @click.stop="action.handler"
+					@touchstart="preventDrag"
+				>
+					<i :class="action.icon"></i>
+				</button>
 			</template>
 		</div>
 	</div>
-	<div v-if="(narrow && !hideTitle) && hasTabs" :class="[$style.lower, { [$style.slim]: narrow, [$style.thin]: thin_ }]">
-		<XTabs :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el" @update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"/>
+	<div
+		v-if="(narrow && !hideTitle) && hasTabs"
+		:class="[$style.lower, { [$style.slim]: narrow, [$style.thin]: thin_ }]"
+	>
+		<XTabs
+			:fillter="fillter" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el"
+			@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
+		/>
 	</div>
 </div>
 </template>
@@ -55,6 +73,7 @@ const props = withDefaults(defineProps<{
 	tab?: string;
 	actions?: PageHeaderItem[] | null;
 	thin?: boolean;
+	fillter?: boolean;
 	displayMyAvatar?: boolean;
 }>(), {
 	tabs: () => ([] as Tab[]),
@@ -99,7 +118,7 @@ function onTabClick(): void {
 }
 
 const calcBg = () => {
-	const rawBg = 'var(--bg)';
+	const rawBg = '#fff';
 	const tinyBg = tinycolor(rawBg.startsWith('var(') ? getComputedStyle(document.documentElement).getPropertyValue(rawBg.slice(4, -1)) : rawBg);
 	tinyBg.setAlpha(0.85);
 	bg.value = tinyBg.toRgbString();
@@ -134,6 +153,7 @@ onUnmounted(() => {
 	backdrop-filter: var(--blur, blur(15px));
 	border-bottom: solid 0.5px var(--divider);
 	width: 100%;
+	background: #fff;
 }
 
 .upper,
@@ -146,12 +166,17 @@ onUnmounted(() => {
 	--height: 50px;
 	display: flex;
 	gap: var(--margin);
-	height: var(--height);
+	height: 50px;
+
+	&.fillter {
+		height: 86px;
+	}
 
 	.tabs:first-child {
 		margin-left: auto;
 		padding: 0 12px;
 	}
+
 	.tabs {
 		margin-right: auto;
 	}
@@ -159,8 +184,8 @@ onUnmounted(() => {
 	&.thin {
 		--height: 40px;
 
-		> .buttons {
-			> .button {
+		>.buttons {
+			>.button {
 				font-size: 0.9em;
 			}
 		}
@@ -173,7 +198,8 @@ onUnmounted(() => {
 		.tabs:first-child {
 			margin-left: 0;
 		}
-		> .titleContainer {
+
+		>.titleContainer {
 			margin: 0 auto;
 			max-width: 100%;
 		}
@@ -191,6 +217,7 @@ onUnmounted(() => {
 	align-items: center;
 	min-width: var(--height);
 	height: var(--height);
+
 	&:empty {
 		width: var(--height);
 	}
@@ -230,12 +257,12 @@ onUnmounted(() => {
 	}
 
 	&.highlighted {
-		color: var(--accent);
+		color: #20d9bc;
 	}
 }
 
 .fullButton {
-	& + .fullButton {
+	&+.fullButton {
 		margin-left: 12px;
 	}
 }
@@ -293,7 +320,7 @@ onUnmounted(() => {
 	&.activeTab {
 		text-align: center;
 
-		> .chevron {
+		>.chevron {
 			display: inline-block;
 			margin-left: 6px;
 		}

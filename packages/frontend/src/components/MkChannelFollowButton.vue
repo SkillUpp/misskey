@@ -109,7 +109,7 @@ async function onClick() {
 
 	&.active {
 		color: var(--fgOnAccent);
-		background: var(--accent);
+		background: #20d9bc;
 
 		&:hover {
 			background: var(--accentLighten);

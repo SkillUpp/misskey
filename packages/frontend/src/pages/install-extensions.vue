@@ -69,7 +69,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 						<template #key>{{ i18n.ts._externalResourceInstaller._vendorInfo.hashVerify }}</template>
 						<template #value>
 							<!--この画面が出ている時点でハッシュの検証には成功している-->
-							<i class="ti ti-check" style="color: var(--accent)"></i>
+							<i class="ti ti-check" style="color: #20d9bc"></i>
 						</template>
 					</MkKeyValue>
 				</div>
@@ -335,8 +335,8 @@ definePageMetadata(() => ({
 	margin-left: auto;
 	margin-right: auto;
 
-	background-color: var(--accentedBg);
-	color: var(--accent);
+	background-color: #fff;
+	color: #20d9bc;
 }
 
 .error .extInstallerIconWrapper {

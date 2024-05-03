@@ -623,7 +623,7 @@ function loadConversation() {
 }
 
 .noteReplyTarget {
-	color: var(--accent);
+	color: #20d9bc;
 	margin-right: 0.5em;
 }
 
@@ -686,7 +686,7 @@ function loadConversation() {
 	opacity: 0.7;
 
 	&.reacted {
-		color: var(--accent);
+		color: #20d9bc;
 	}
 }
 
@@ -708,7 +708,7 @@ function loadConversation() {
 }
 
 .tabActive {
-	border-bottom: solid 2px var(--accent);
+	border-bottom: solid 2px #20d9bc;
 }
 
 .tab_renotes {
@@ -733,7 +733,7 @@ function loadConversation() {
 }
 
 .reactionTabActive {
-	border-color: var(--accent);
+	border-color: #20d9bc;
 }
 
 @container (max-width: 500px) {

@@ -26,13 +26,13 @@
 
 ::selection {
 	color: var(--fgOnAccent);
-	background-color: var(--accent);
+	background-color: #20d9bc;
 }
 
 html {
-	background-color: var(--bg);
+	background-color: #fff;
 	color: var(--fg);
-	accent-color: var(--accent);
+	accent-color: #20d9bc;
 	overflow: auto;
 	overflow-wrap: break-word;
 	font-size: 14px;
@@ -62,7 +62,7 @@ html {
 			}
 
 			&:active {
-				background: var(--accent);
+				background: #20d9bc;
 			}
 		}
 	}
@@ -214,7 +214,7 @@ rt {
 	touch-action: manipulation;
 	tap-highlight-color: transparent;
 	-webkit-tap-highlight-color: transparent;
-	font-size: 1em;
+	font-size: 16px;
 	line-height: inherit;
 	max-width: 100%;
 
@@ -231,7 +231,7 @@ rt {
 ._buttonPrimary {
 	@extend ._button;
 	color: var(--fgOnAccent);
-	background: var(--accent);
+	background: #20d9bc;
 
 	&:not(:disabled):hover {
 		background: var(--X8);
@@ -257,13 +257,13 @@ rt {
 }
 
 ._help {
-	color: var(--accent);
+	color: #20d9bc;
 	cursor: help
 }
 
 ._textButton {
 	@extend ._button;
-	color: var(--accent);
+	color: #20d9bc;
 
 	&:not(:disabled):hover {
 		text-decoration: underline;
@@ -321,7 +321,7 @@ rt {
 	border-radius: var(--radius);
 
 	&:active {
-		border-color: var(--accent);
+		border-color: #20d9bc;
 	}
 }
 
@@ -347,8 +347,8 @@ rt {
 	margin-left: 0.7em;
 	font-size: 65%;
 	padding: 2px 3px;
-	color: var(--accent);
-	border: solid 1px var(--accent);
+	color: #20d9bc;
+	border: solid 1px #20d9bc;
 	border-radius: 4px;
 	vertical-align: top;
 }
@@ -423,7 +423,7 @@ rt {
 	--fg: #693410;
 	--switchOffBg: rgba(0, 0, 0, 0.1);
 	--switchOffFg: rgb(255, 255, 255);
-	--switchOnBg: var(--accent);
+	--switchOnBg: #20d9bc;
 	--switchOnFg: rgb(255, 255, 255);
 }
 
@@ -435,7 +435,7 @@ rt {
 ._woodenFrameInner {
 	padding: 8px;
 	margin-top: 8px;
-	background: var(--bg);
+	background: #fff;
 	box-shadow: 0 0 2px 1px #ce8a5c, inset 0 0 1px 1px #693410;
 	border-radius: 6px;
 	color: var(--fg);

@@ -103,7 +103,7 @@ onMounted(() => {
 	z-index: 1000;
 	width: 100%;
 	height: $height;
-	background-color: var(--bg);
+	background-color: #fff;
 
 	> .body {
 		max-width: 1380px;

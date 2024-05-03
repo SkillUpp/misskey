@@ -81,7 +81,7 @@ const XUserList = defineAsyncComponent(() => import('./statusbar-user-list.vue')
 .name {
 	padding: 0 var(--nameMargin);
 	font-weight: bold;
-	color: var(--accent);
+	color: #20d9bc;
 
 	&:empty {
 		display: none;

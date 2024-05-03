@@ -490,7 +490,7 @@ definePageMetadata(() => ({
 	}
 
 	&.active {
-		color: var(--accent);
+		color: #20d9bc;
 		background: var(--buttonHoverBg);
 	}
 }

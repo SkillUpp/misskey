@@ -237,7 +237,7 @@ function more() {
 			right: 0;
 			bottom: 0;
 			border-radius: 999px;
-			background: var(--accentedBg);
+			background: #fff;
 		}
 	}
 }
@@ -265,6 +265,6 @@ function more() {
 
 .itemText {
 	position: relative;
-	font-size: 0.9em;
+	font-size: 18px;
 }
 </style>

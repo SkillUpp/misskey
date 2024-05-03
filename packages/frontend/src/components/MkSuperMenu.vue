@@ -68,8 +68,8 @@ defineProps<{
 				}
 
 				&.active {
-					color: var(--accent);
-					background: var(--accentedBg);
+					color: #20d9bc;
+					background: #fff;
 				}
 
 				&.danger {
@@ -124,10 +124,10 @@ defineProps<{
 					&:hover {
 						text-decoration: none;
 						background: none;
-						color: var(--accent);
+						color: #20d9bc;
 
 						> .icon {
-							background: var(--accentedBg);
+							background: #fff
 						}
 					}
 

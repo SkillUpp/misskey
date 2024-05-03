@@ -92,8 +92,8 @@ place-content: center;
 	font-size: 1.5em;
 	text-align: center;
 	padding: 32px;
-	background: var(--accentedBg);
-	color: var(--accent);
+	background: #fff;
+	color: #20d9bc;
 	font-weight: bold;
 }
 

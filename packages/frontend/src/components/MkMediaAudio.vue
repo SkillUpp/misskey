@@ -313,8 +313,8 @@ onDeactivated(() => {
 		font-size: 1.05rem;
 
 		&:hover {
-			color: var(--accent);
-			background-color: var(--accentedBg);
+			color: #20d9bc;
+			background-color: #fff;
 		}
 	}
 }

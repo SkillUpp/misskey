@@ -227,7 +227,7 @@ export default defineComponent({
 	padding: 0 16px;
 	line-height: 32px;
 	text-align: center;
-	font-size: 12px;
+	font-size: 14px;
 	color: var(--dateLabelFg);
 }
 

@@ -577,7 +577,7 @@ $gap: 4px;
 	}
 
 	&.boardCell_empty.boardCell_can {
-		border-color: var(--accent);
+		border-color: #20d9bc;
 		opacity: 0.5;
 	}
 
@@ -586,17 +586,17 @@ $gap: 4px;
 		opacity: 1;
 
 		&.boardCell_can {
-			border-color: var(--accent);
+			border-color: #20d9bc;
 			cursor: pointer;
 
 			&:hover {
-				background: var(--accent);
+				background: #20d9bc;
 			}
 		}
 	}
 
 	&.boardCell_prev {
-		box-shadow: 0 0 0 4px var(--accent);
+		box-shadow: 0 0 0 4px #20d9bc;
 	}
 
 	&.boardCell_isEnded {

@@ -21,7 +21,7 @@ export default {
 		const myBg = window.getComputedStyle(src).backgroundColor;
 
 		if (parentBg === myBg) {
-			src.style.backgroundColor = 'var(--bg)';
+			src.style.backgroundColor = '#fff';
 		} else {
 			src.style.backgroundColor = myBg;
 		}

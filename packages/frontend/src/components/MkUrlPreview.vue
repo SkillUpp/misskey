@@ -266,7 +266,7 @@ onUnmounted(() => {
 	height: 100%;
 	background-position: center;
 	background-size: cover;
-	background-color: var(--bg);
+	background-color: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;

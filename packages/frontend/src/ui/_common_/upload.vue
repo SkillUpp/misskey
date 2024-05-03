@@ -125,7 +125,7 @@ const zIndex = os.claimZIndex('high');
 	height: 8px;
 }
 .mk-uploader > ol > li > progress::-webkit-progress-value {
-  background: var(--accent);
+  background: #20d9bc;
 }
 .mk-uploader > ol > li > progress::-webkit-progress-bar {
   //background: var(--accentAlpha01);

@@ -130,7 +130,7 @@ function openPostForm() {
 }
 
 .postForm {
-	background: var(--bg);
+	background: #fff;
 	border-radius: 8px;
 }
 </style>

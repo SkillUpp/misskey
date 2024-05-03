@@ -148,7 +148,7 @@ function onDragend() {
 	}
 
 	&.isSelected {
-		background: var(--accent);
+		background: #20d9bc;
 
 		&:hover {
 			background: var(--accentLighten);

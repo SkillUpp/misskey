@@ -261,7 +261,7 @@ export default function (props: MfmProps, { emit }: { emit: SetupContext<MfmEven
 					}
 					case 'border': {
 						let color = validColor(token.props.args.color);
-						color = color ? `#${color}` : 'var(--accent)';
+						color = color ? `#${color}` : '#20d9bc';
 						let b_style = token.props.args.style;
 						if (
 							typeof b_style !== 'string' ||

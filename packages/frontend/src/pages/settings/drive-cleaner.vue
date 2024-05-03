@@ -132,7 +132,7 @@ definePageMetadata(() => ({
 	align-items: center;
 
 	&:hover {
-		color: var(--accent);
+		color: #20d9bc;
 	}
 }
 

@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
 	display: inline-block;
 	font-weight: bold;
 	color: var(--fgOnWhite);
-	border: solid 1px var(--accent);
+	border: solid 1px #20d9bc;
 	padding: 0;
 	height: 31px;
 	font-size: 16px;
@@ -194,7 +194,7 @@ onBeforeUnmount(() => {
 
 	&.active {
 		color: var(--fgOnAccent);
-		background: var(--accent);
+		background: #20d9bc;
 
 		&:hover {
 			background: var(--accentLighten);

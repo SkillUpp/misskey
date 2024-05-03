@@ -195,7 +195,7 @@ onUnmounted(() => {
 
 .focused {
 	> .textarea {
-		border-color: var(--accent) !important;
+		border-color: #20d9bc !important;
 	}
 }
 

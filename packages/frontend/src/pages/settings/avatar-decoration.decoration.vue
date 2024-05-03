@@ -52,8 +52,8 @@ const emit = defineEmits<{
 }
 
 .active {
-	background-color: var(--accentedBg);
-	border-color: var(--accent);
+	background-color: #fff;
+	border-color: #20d9bc;
 }
 
 .name {

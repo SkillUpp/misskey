@@ -319,7 +319,7 @@ function onContextmenu(ev: MouseEvent) {
 	border: solid 1px #000;
 
 	&.checked {
-		background: var(--accent);
+		background: #20d9bc;
 	}
 }
 

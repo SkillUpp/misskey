@@ -75,7 +75,7 @@ function leaveHover(): void {
 
 	&:hover {
 		text-decoration: none;
-		color: var(--accent);
+		color: #20d9bc;
 
 		> .thumbnail {
 			transform: scale(1.1);

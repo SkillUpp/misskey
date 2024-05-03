@@ -4,34 +4,54 @@ SPDX-License-Identifier: AGPL-3.0-only
 -->
 
 <template>
-<div ref="el" :class="$style.tabs" @wheel="onTabWheel">
-	<div :class="$style.tabsInner">
-		<button
-			v-for="t in tabs" :ref="(el) => tabRefs[t.key] = (el as HTMLElement)" v-tooltip.noDelay="t.title"
-			class="_button" :class="[$style.tab, { [$style.active]: t.key != null && t.key === props.tab, [$style.animate]: defaultStore.reactiveState.animation.value }]"
-			@mousedown="(ev) => onTabMousedown(t, ev)" @click="(ev) => onTabClick(t, ev)"
-		>
-			<div :class="$style.tabInner">
-				<i v-if="t.icon" :class="[$style.tabIcon, t.icon]"></i>
-				<div
-					v-if="!t.iconOnly || (!defaultStore.reactiveState.animation.value && t.key === tab)"
-					:class="$style.tabTitle"
-				>
-					{{ t.title }}
+<div>
+	<div ref="el" :class="$style.tabs" @wheel="onTabWheel">
+		<div :class="$style.tabsInner">
+			<button
+				v-for="t in tabs" :key="t.key" :ref="(el) => tabRefs[t.key] = (el as HTMLElement)"
+				v-tooltip.noDelay="t.title" class="_button"
+				:class="[$style.tab, { [$style.active]: t.key != null && t.key === props.tab, [$style.animate]: defaultStore.reactiveState.animation.value }]"
+				@mousedown="(ev) => onTabMousedown(t, ev)" @click="(ev) => onTabClick(t, ev)"
+			>
+				<div :class="$style.tabInner">
+					<i v-if="t.icon" :class="[$style.tabIcon, t.icon]"></i>
+					<div
+						v-if="!t.iconOnly || (!defaultStore.reactiveState.animation.value && t.key === tab)"
+						:class="$style.tabTitle"
+					>
+						{{ t.title }}
+					</div>
+					<Transition
+						v-else mode="in-out" @enter="enter" @afterEnter="afterEnter" @leave="leave"
+						@afterLeave="afterLeave"
+					>
+						<div v-show="t.key === tab" :class="[$style.tabTitle, $style.animate]">{{ t.title }}</div>
+					</Transition>
 				</div>
-				<Transition
-					v-else mode="in-out" @enter="enter" @afterEnter="afterEnter" @leave="leave"
-					@afterLeave="afterLeave"
-				>
-					<div v-show="t.key === tab" :class="[$style.tabTitle, $style.animate]">{{ t.title }}</div>
-				</Transition>
-			</div>
-		</button>
+			</button>
+		</div>
+		<div
+			ref="tabHighlightEl"
+			:class="[$style.tabHighlight, { [$style.animate]: defaultStore.reactiveState.animation.value }]"
+		></div>
 	</div>
-	<div
-		ref="tabHighlightEl"
-		:class="[$style.tabHighlight, { [$style.animate]: defaultStore.reactiveState.animation.value }]"
-	></div>
+	<div v-if="fillter" :class="$style.fillter">
+		<div :class="$style.fillter_type">
+			<select :class="$style.select" @change="handleChangeSelect">
+				<option value="all">All</option>
+				<option value="hot">Hot</option>
+				<option value="new">New</option>
+				<option value="top">Top</option>
+			</select>
+		</div>
+		<div :class="$style.fillter_type">
+			<select :class="$style.select" @change="handleChangeSelect">
+				<option value="view">View</option>
+				<option value="card">Card</option>
+				<option value="compact">Compact</option>
+			</select>
+		</div>
+	</div>
 </div>
 </template>
 
@@ -41,26 +61,28 @@ export type Tab = {
 	title: string;
 	onClick?: (ev: MouseEvent) => void;
 } & (
-	| {
+		| {
 			iconOnly?: false;
 			title: string;
 			icon?: string;
 		}
-	| {
+		| {
 			iconOnly: true;
 			icon: string;
 		}
-);
+	);
 </script>
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, watch, nextTick, shallowRef } from 'vue';
+import { All } from '../MkAchievements.stories.impl';
 import { defaultStore } from '@/store.js';
 
 const props = withDefaults(defineProps<{
 	tabs?: Tab[];
 	tab?: string;
 	rootEl?: HTMLElement;
+	fillter?: boolean
 }>(), {
 	tabs: () => ([] as Tab[]),
 });
@@ -92,6 +114,14 @@ function onTabClick(t: Tab, ev: MouseEvent): void {
 
 	if (t.key) {
 		emit('update:tab', t.key);
+	}
+}
+
+function handleChangeSelect(event) {
+	const val = event.target.value;
+	emit('tabClick', val);
+	if (val) {
+		emit('update:tab', val);
 	}
 }
 
@@ -189,7 +219,7 @@ onUnmounted(() => {
 	position: relative;
 	margin: 0;
 	height: var(--height);
-	font-size: 0.8em;
+	font-size: 14px;
 	text-align: center;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -232,7 +262,7 @@ onUnmounted(() => {
 	align-items: center;
 }
 
-.tabIcon + .tabTitle {
+.tabIcon+.tabTitle {
 	padding-left: 4px;
 }
 
@@ -255,6 +285,39 @@ onUnmounted(() => {
 
 	&.animate {
 		transition: width 0.15s ease, left 0.15s ease;
+	}
+}
+
+.fillter {
+	position: absolute;
+	left: 0;
+	bottom: 4px;
+	display: flex;
+	align-items: center;
+	height: 36px;
+	// transform: translateX(-50%);
+
+	.fillter_type {
+		display: flex;
+		align-items: center;
+		padding: 0 16px;
+
+		&:last-child {
+			padding-left: 0;
+		}
+
+		.select {
+			width: 70px;
+			height: 32px;
+			padding: 0 6px;
+			outline: none;
+			border-radius: 4px;
+			color: #576f76;
+
+			option {
+				color: #636363;
+			}
+		}
 	}
 }
 </style>

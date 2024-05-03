@@ -134,7 +134,7 @@ defineProps<{
 
 .statusItemValue {
 	font-size: 1em;
-	color: var(--accent);
+	color: #20d9bc;
 }
 
 .follow {

@@ -127,7 +127,7 @@ function collapsable(v): boolean {
 
 			> .toggle {
 				width: 16px;
-				color: var(--accent);
+				color: #20d9bc;
 				visibility: hidden;
 
 				&.visible {

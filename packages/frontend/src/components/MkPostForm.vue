@@ -1141,7 +1141,7 @@ defineExpose({
 
 .withQuote {
 	margin: 0 0 8px 0;
-	color: var(--accent);
+	color: #20d9bc;
 }
 
 .toSpecified {
@@ -1276,12 +1276,12 @@ defineExpose({
 	}
 
 	&.footerButtonActive {
-		color: var(--accent);
+		color: #20d9bc;
 	}
 }
 
 .previewButtonActive {
-	color: var(--accent);
+	color: #20d9bc;
 }
 
 @container (max-width: 500px) {

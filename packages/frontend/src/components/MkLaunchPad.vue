@@ -105,8 +105,8 @@ function close() {
 			box-sizing: border-box;
 
 			&:hover {
-				color: var(--accent);
-				background: var(--accentedBg);
+				color: #20d9bc;
+				background: #fff;
 				text-decoration: none;
 			}
 

@@ -247,7 +247,7 @@ definePageMetadata(() => ({
 .tab {
 	margin: calc(var(--margin) / 2) 0;
 	padding: calc(var(--margin) / 2) 0;
-	background: var(--bg);
+	background: #fff;
 }
 
 .emojis {

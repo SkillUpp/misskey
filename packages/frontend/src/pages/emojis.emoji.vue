@@ -62,7 +62,7 @@ function menu(ev) {
 	border-radius: 8px;
 
 	&:hover {
-		border-color: var(--accent);
+		border-color: #20d9bc;
 	}
 }
 

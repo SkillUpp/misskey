@@ -80,7 +80,7 @@ if (props.detail) {
 <style lang="scss" module>
 .root {
 	padding: 16px 32px;
-	font-size: 0.9em;
+	font-size: 16px;
 	position: relative;
 
 	&.children {

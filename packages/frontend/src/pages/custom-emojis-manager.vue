@@ -336,7 +336,7 @@ definePageMetadata(() => ({
 				}
 
 				&.selected {
-					border-color: var(--accent);
+					border-color: #20d9bc;
 				}
 
 				> .img {
@@ -382,7 +382,7 @@ definePageMetadata(() => ({
 				text-align: left;
 
 				&:hover {
-					color: var(--accent);
+					color: #20d9bc;
 				}
 
 				> .img {

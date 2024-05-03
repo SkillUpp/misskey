@@ -36,7 +36,7 @@ const props = defineProps<{
 
 	&:hover {
 		text-decoration: none;
-		color: var(--accent);
+		color: #20d9bc;
 	}
 
 	> article {
