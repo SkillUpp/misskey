@@ -137,7 +137,7 @@ function close() {
 				position: absolute;
 				top: 32px;
 				left: 32px;
-				color: var(--indicator);
+				color: #20d9bc;
 				font-size: 8px;
 				animation: global-blink 1s infinite;
 

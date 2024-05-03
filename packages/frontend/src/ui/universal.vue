@@ -280,6 +280,7 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
+	border-top: 1px solid rgb(232, 232, 232);
 }
 </style>
 
@@ -476,7 +477,7 @@ $widgets-hide-threshold: 1090px;
 	position: absolute;
 	top: 0;
 	left: 0;
-	color: var(--indicator);
+	color: #20d9bc;
 	font-size: 16px;
 	animation: global-blink 1s infinite;
 
