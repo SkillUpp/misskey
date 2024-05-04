@@ -5,45 +5,56 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <template>
 <form :class="{ signing, totpLogin }" @submit.prevent="onSubmit">
-	<div class="_gaps_m">
-		<div v-show="withAvatar" :class="$style.avatar" :style="{ backgroundImage: user ? `url('${ user.avatarUrl }')` : undefined, marginBottom: message ? '1.5em' : undefined }"></div>
-		<MkInfo v-if="message">
-			{{ message }}
-		</MkInfo>
-		<div v-if="!totpLogin" class="normal-signin _gaps_m">
-			<MkInput v-model="username" :placeholder="i18n.ts.username" type="text" pattern="^[a-zA-Z0-9_]+$" :spellcheck="false" autocomplete="username webauthn" autofocus required data-cy-signin-username @update:modelValue="onUsernameChange">
-				<template #prefix>@</template>
-				<template #suffix>@{{ host }}</template>
-			</MkInput>
-			<MkInput v-if="!user || user && !user.usePasswordLessLogin" v-model="password" :placeholder="i18n.ts.password" type="password" autocomplete="current-password webauthn" :withPasswordToggle="true" required data-cy-signin-password>
-				<template #prefix><i class="ti ti-lock"></i></template>
-				<template #caption><button class="_textButton" type="button" @click="resetPassword">{{ i18n.ts.forgotPassword }}</button></template>
-			</MkInput>
-			<MkButton type="submit" large primary rounded :disabled="signing" style="margin: 0 auto;">{{ signing ? i18n.ts.loggingIn : i18n.ts.login }}</MkButton>
-		</div>
-		<div v-if="totpLogin" class="2fa-signin" :class="{ securityKeys: user && user.securityKeys }">
-			<div v-if="user && user.securityKeys" class="twofa-group tap-group">
-				<p>{{ i18n.ts.useSecurityKey }}</p>
-				<MkButton v-if="!queryingKey" @click="queryKey">
-					{{ i18n.ts.retry }}
-				</MkButton>
-			</div>
-			<div v-if="user && user.securityKeys" class="or-hr">
-				<p class="or-msg">{{ i18n.ts.or }}</p>
-			</div>
-			<div class="twofa-group totp-group">
-				<p style="margin-bottom:0;">{{ i18n.ts['2fa'] }}</p>
-				<MkInput v-if="user && user.usePasswordLessLogin" v-model="password" type="password" autocomplete="current-password" :withPasswordToggle="true" required>
-					<template #label>{{ i18n.ts.password }}</template>
-					<template #prefix><i class="ti ti-lock"></i></template>
-				</MkInput>
-				<MkInput v-model="token" type="text" pattern="^([0-9]{6}|[A-Z0-9]{32})$" autocomplete="one-time-code" :spellcheck="false" required>
-					<template #label>{{ i18n.ts.token }}</template>
-					<template #prefix><i class="ti ti-123"></i></template>
-				</MkInput>
-				<MkButton type="submit" :disabled="signing" large primary rounded style="margin: 0 auto;">{{ signing ? i18n.ts.loggingIn : i18n.ts.login }}</MkButton>
-			</div>
-		</div>
+	<div>
+		<h5 :class="$style.title">Login invalid</h5>
+		<p :class="$style.message">Login has expired, please log in again</p>
+		<MkButton :class="$style.button" @click="handleLogin">
+			Confirm
+		</MkButton>
+		<!-- <div v-show="withAvatar" :class="$style.avatar" :style="{ backgroundImage: user ? `url('${ user.avatarUrl }')` : undefined, marginBottom: message ? '1.5em' : undefined }"></div>
+			<MkInfo v-if="message">
+				{{ message }}
+			</MkInfo>
+			<div v-if="!totpLogin" class="normal-signin _gaps_m">
+				<MkInput v-model="username" :placeholder="i18n.ts.username" type="text" pattern="^[a-zA-Z0-9_]+$" :spellcheck="false" autocomplete="username webauthn" autofocus required data-cy-signin-username @update:modelValue="onUsernameChange">
+					<template #prefix>@</template>
+<template #suffix>@{{ host }}</template>
+</MkInput>
+<MkInput v-if="!user || user && !user.usePasswordLessLogin" v-model="password" :placeholder="i18n.ts.password"
+	type="password" autocomplete="current-password webauthn" :withPasswordToggle="true" required data-cy-signin-password>
+	<template #prefix><i class="ti ti-lock"></i></template>
+	<template
+		#caption><button class="_textButton" type="button" @click="resetPassword">{{ i18n.ts.forgotPassword }}</button></template>
+</MkInput>
+<MkButton type="submit" large primary rounded :disabled="signing" style="margin: 0 auto;">{{ signing ? i18n.ts.loggingIn
+	: i18n.ts.login }}</MkButton>
+</div>
+<div v-if="totpLogin" class="2fa-signin" :class="{ securityKeys: user && user.securityKeys }">
+	<div v-if="user && user.securityKeys" class="twofa-group tap-group">
+		<p>{{ i18n.ts.useSecurityKey }}</p>
+		<MkButton v-if="!queryingKey" @click="queryKey">
+			{{ i18n.ts.retry }}
+		</MkButton>
+	</div>
+	<div v-if="user && user.securityKeys" class="or-hr">
+		<p class="or-msg">{{ i18n.ts.or }}</p>
+	</div>
+	<div class="twofa-group totp-group">
+		<p style="margin-bottom:0;">{{ i18n.ts['2fa'] }}</p>
+		<MkInput v-if="user && user.usePasswordLessLogin" v-model="password" type="password" autocomplete="current-password"
+			:withPasswordToggle="true" required>
+			<template #label>{{ i18n.ts.password }}</template>
+			<template #prefix><i class="ti ti-lock"></i></template>
+		</MkInput>
+		<MkInput v-model="token" type="text" pattern="^([0-9]{6}|[A-Z0-9]{32})$" autocomplete="one-time-code"
+			:spellcheck="false" required>
+			<template #label>{{ i18n.ts.token }}</template>
+			<template #prefix><i class="ti ti-123"></i></template>
+		</MkInput>
+		<MkButton type="submit" :disabled="signing" large primary rounded style="margin: 0 auto;">{{ signing ?
+			i18n.ts.loggingIn : i18n.ts.login }}</MkButton>
+	</div>
+</div> -->
 	</div>
 </form>
 </template>
@@ -110,6 +121,11 @@ function onLogin(res: any): Promise<void> | void {
 		return login(res.i);
 	}
 }
+
+const handleLogin = () => {
+	window.location.href = 'https://api.skillupp.xyz/api/v1/login';
+	localStorage.setItem('redirect_url', window.location.href);
+};
 
 async function queryKey(): Promise<void> {
 	if (credentialRequest.value == null) return;
@@ -223,13 +239,26 @@ function resetPassword(): void {
 </script>
 
 <style lang="scss" module>
-.avatar {
-	margin: 0 auto 0 auto;
-	width: 64px;
-	height: 64px;
-	background: #ddd;
-	background-position: center;
-	background-size: cover;
-	border-radius: 100%;
+.title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 28px;
+	margin: 12px 0 5px;
+}
+
+.message {
+	line-height: 26px;
+	margin: 0 0 20px;
+	color: #636363;
+}
+
+.button {
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 500;
+	border-radius: 25px;
 }
 </style>

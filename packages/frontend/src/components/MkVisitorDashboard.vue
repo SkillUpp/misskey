@@ -5,17 +5,14 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <template>
 <div v-if="meta" :class="$style.root">
-	<div :class="[$style.main, $style.panel]">
-		<img :src="instance.iconUrl || '/favicon.ico'" alt="" :class="$style.mainIcon"/>
-		<button class="_button _acrylic" :class="$style.mainMenu" @click="showMenu"><i class="ti ti-dots"></i></button>
-		<div :class="$style.mainFg">
+	<!-- <div :class="[$style.main, $style.panel]"> -->
+	<!-- <img :src="instance.iconUrl || '/favicon.ico'" alt="" :class="$style.mainIcon"/> -->
+	<!-- <button class="_button _acrylic" :class="$style.mainMenu" @click="showMenu"><i class="ti ti-dots"></i></button> -->
+	<!-- <div :class="$style.mainFg">
 			<h1 :class="$style.mainTitle">
-				<!-- 背景色によってはロゴが見えなくなるのでとりあえず無効に -->
-				<!-- <img class="logo" v-if="meta.logoImageUrl" :src="meta.logoImageUrl"><span v-else class="text">{{ instanceName }}</span> -->
 				<span>{{ instanceName }}</span>
 			</h1>
 			<div :class="$style.mainAbout">
-				<!-- eslint-disable-next-line vue/no-v-html -->
 				<div v-html="meta.description || i18n.ts.headlineMisskey"></div>
 			</div>
 			<div v-if="instance.disableRegistration" :class="$style.mainWarn">
@@ -26,9 +23,9 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<MkButton :class="$style.mainAction" full rounded @click="exploreOtherServers()">{{ i18n.ts.exploreOtherServers }}</MkButton>
 				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">{{ i18n.ts.login }}</MkButton>
 			</div>
-		</div>
-	</div>
-	<div v-if="stats" :class="$style.stats">
+		</div> -->
+	<!-- </div> -->
+	<!-- <div v-if="stats" :class="$style.stats">
 		<div :class="[$style.statsItem, $style.panel]">
 			<div :class="$style.statsItemLabel">{{ i18n.ts.users }}</div>
 			<div :class="$style.statsItemCount"><MkNumber :value="stats.originalUsersCount"/></div>
@@ -37,16 +34,16 @@ SPDX-License-Identifier: AGPL-3.0-only
 			<div :class="$style.statsItemLabel">{{ i18n.ts.notes }}</div>
 			<div :class="$style.statsItemCount"><MkNumber :value="stats.originalNotesCount"/></div>
 		</div>
-	</div>
+	</div> -->
 	<div v-if="instance.policies.ltlAvailable" :class="[$style.tl, $style.panel]">
 		<div :class="$style.tlHeader">{{ i18n.ts.letsLookAtTimeline }}</div>
 		<div :class="$style.tlBody">
-			<MkTimeline src="local"/>
+			<MkTimeline src="local" :class="$style.line_list"/>
 		</div>
 	</div>
-	<div :class="$style.panel">
+	<!-- <div :class="$style.panel">
 		<XActiveUsersChart/>
-	</div>
+	</div> -->
 </div>
 </template>
 
@@ -139,13 +136,16 @@ function exploreOtherServers() {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	padding: 32px 0 0 0;
+	height: 100%;
+	// overflow: hidden;
+	// gap: 16px;
+	// padding: 32px 0 0 0;
 }
 
 .panel {
 	position: relative;
 	background: #fff;
+	height: 100vh;
 	border-radius: var(--radius);
 	box-shadow: 0 12px 32px rgb(0 0 0 / 25%);
 }
@@ -237,7 +237,10 @@ function exploreOtherServers() {
 }
 
 .tlBody {
-	height: 350px;
+	height: 90%;
 	overflow: auto;
+}
+.line_list {
+	padding-bottom: 120px;
 }
 </style>

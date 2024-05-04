@@ -5,16 +5,34 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <template>
 <MkModal ref="modal" :preferType="'dialog'" @click="onBgClick" @closed="$emit('closed')">
-	<div ref="rootEl" :class="$style.root" :style="{ width: `${width}px`, height: `min(${height}px, 100%)` }" @keydown="onKeydown">
+	<div
+		ref="rootEl" :class="[$style.root, isSigin && $style.isSigin]"
+		:style="{ width: `${width}px`, height: `min(${height}px, 100%)` }" @keydown="onKeydown"
+	>
 		<div ref="headerEl" :class="$style.header">
-			<button v-if="withOkButton" :class="$style.headerButton" class="_button" @click="$emit('close')"><i class="ti ti-x"></i></button>
+			<button v-if="withOkButton" :class="$style.headerButton" class="_button" @click="$emit('close')">
+				<i class="ti ti-x"></i>
+			</button>
 			<span :class="$style.title">
 				<slot name="header"></slot>
 			</span>
-			<button v-if="!withOkButton" :class="$style.headerButton" class="_button" data-cy-modal-window-close @click="$emit('close')"><i class="ti ti-x"></i></button>
-			<button v-if="withOkButton" :class="$style.headerButton" class="_button" :disabled="okButtonDisabled" @click="$emit('ok')"><i class="ti ti-check"></i></button>
+			<button
+				v-if="!withOkButton" :class="$style.headerButton" class="_button" data-cy-modal-window-close
+				@click="$emit('close')"
+			>
+				<i class="ti ti-x"></i>
+			</button>
+			<button
+				v-if="withOkButton" :class="$style.headerButton" class="_button" :disabled="okButtonDisabled"
+				@click="$emit('ok')"
+			>
+				<i class="ti ti-check"></i>
+			</button>
 		</div>
-		<div :class="$style.body">
+		<div :class="$style.body" :style="isSigin ? `backgroundImag: url(${WaringBg})` : ''">
+			<button v-if="isSigin" :class="[$style.headerButton, $style.headerButtonClose]" class="_button" @click="$emit('close')">
+				<i class="ti ti-x"></i>
+			</button>
 			<slot :width="bodyWidth" :height="bodyHeight"></slot>
 		</div>
 	</div>
@@ -23,6 +41,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
+import WaringBg from '../../assets/warning.svg';
 import MkModal from './MkModal.vue';
 
 const props = withDefaults(defineProps<{
@@ -30,9 +49,11 @@ const props = withDefaults(defineProps<{
 	okButtonDisabled: boolean;
 	width: number;
 	height: number;
+	isSigin: boolean;
 }>(), {
 	withOkButton: false,
 	okButtonDisabled: false,
+	isSigin: false,
 	width: 400,
 	height: 500,
 });
@@ -105,6 +126,26 @@ defineExpose({
 
 	--headerHeight: 46px;
 	--headerHeightNarrow: 42px;
+
+	&.isSigin {
+		width: 100% !important;
+
+		.body {
+			width: 100% !important;
+			max-width: 400px !important;
+			// height: 200px;
+			padding: 80px 5px 5px;
+			border-radius: 10px;
+			margin: 0 auto;
+			background-repeat: no-repeat;
+			background-position: left top;
+			background-image: url('../../assets/warning.svg');
+		}
+
+		.header {
+			display: none;
+		}
+	}
 }
 
 .header {
@@ -125,6 +166,16 @@ defineExpose({
 	}
 }
 
+.headerButtonClose {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 12px;
+	&:hover {
+		opacity: .7;
+	}
+}
+
 .title {
 	flex: 1;
 	line-height: var(--headerHeight);
@@ -141,7 +192,7 @@ defineExpose({
 	}
 }
 
-.headerButton + .title {
+.headerButton+.title {
 	padding-left: 0;
 }
 
