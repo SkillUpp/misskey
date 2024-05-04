@@ -1,5 +1,6 @@
 /* eslint-disable padded-blocks */
 /*
+	测试
  * SPDX-FileCopyrightText: syuilo and misskey-project
  * SPDX-License-Identifier: AGPL-3.0-only
  */
