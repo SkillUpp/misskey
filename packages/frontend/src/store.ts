@@ -1,3 +1,4 @@
+/* eslint-disable padded-blocks */
 /*
  * SPDX-FileCopyrightText: syuilo and misskey-project
  * SPDX-License-Identifier: AGPL-3.0-only
@@ -610,7 +611,7 @@ export class ColdDeviceStorage {
 				return valueRef.value;
 			},
 			set: (value: unknown) => {
-				const val = value;
+				const val: any = value;
 				ColdDeviceStorage.set(key, val);
 			},
 		};
