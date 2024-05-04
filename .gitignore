@@ -69,3 +69,4 @@ tsdoc-metadata.json
 
 # VSCode addon
 .favorites.json
+yarn.lock

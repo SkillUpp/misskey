@@ -8,7 +8,7 @@ import { StoryObj } from '@storybook/vue3';
 import { HttpResponse, http } from 'msw';
 import { commonHandlers } from '../../.storybook/mocks.js';
 import { userDetailed } from '../../.storybook/fakes.js';
-import MkUserSetupDialog from './MkUserSetupDialog.vue';
+import MkUserSetupDialog from '../components/MkUserSetupDialog.vue';
 export const Default = {
 	render(args) {
 		return {
