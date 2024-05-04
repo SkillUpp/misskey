@@ -41,8 +41,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
-import WaringBg from '../../assets/warning.svg';
 import MkModal from './MkModal.vue';
+import WaringBg from '/client-assets/warning.svg';
 
 const props = withDefaults(defineProps<{
 	withOkButton: boolean;
@@ -139,7 +139,6 @@ defineExpose({
 			margin: 0 auto;
 			background-repeat: no-repeat;
 			background-position: left top;
-			background-image: url('../../assets/warning.svg');
 		}
 
 		.header {

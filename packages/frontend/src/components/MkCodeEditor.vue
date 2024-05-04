@@ -206,7 +206,6 @@ watch(v, newValue => {
 	padding: 12px;
 	line-height: 1.5em;
 	font-size: 1em;
-	// font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 }
 
 .textarea::selection {

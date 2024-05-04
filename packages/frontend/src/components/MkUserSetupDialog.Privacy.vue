@@ -66,6 +66,3 @@ watch([isLocked, hideOnlineStatus, noCrawle, preventAiLearning], () => {
 });
 </script>
 
-<style lang="scss" module>
-
-</style>

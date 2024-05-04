@@ -41,20 +41,7 @@ interface PageViewInterruptor {
 }
 
 /** サウンド設定 */
-export type SoundStore = {
-	type: Exclude<SoundType, '_driveFile_'>;
-	volume: number;
-} | {
-	type: '_driveFile_';
-
-	/** ドライブのファイルID */
-	fileId: string;
-
-	/** ファイルURL（こちらが優先される） */
-	fileUrl: string;
-
-	volume: number;
-}
+export type SoundStore = any;
 
 export const postFormActions: PostFormAction[] = [];
 export const userActions: UserAction[] = [];

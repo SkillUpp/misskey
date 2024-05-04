@@ -184,14 +184,6 @@ onBeforeUnmount(() => {
 		}
 	}
 
-	&:hover {
-		//background: mix($primary, #fff, 20);
-	}
-
-	&:active {
-		//background: mix($primary, #fff, 40);
-	}
-
 	&.active {
 		color: var(--fgOnAccent);
 		background: #20d9bc;

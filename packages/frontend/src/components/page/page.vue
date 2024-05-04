@@ -19,9 +19,6 @@ defineProps<{
 </script>
 
 <style lang="scss" module>
-.serif {
-	// font-family: serif;
-}
 
 .center {
 	text-align: center;

@@ -73,7 +73,6 @@ const onInput = () => {
 	&.focused {
 		> .inputCore {
 			border-color: #20d9bc !important;
-			//box-shadow: 0 0 0 4px var(--focus);
 		}
 	}
 

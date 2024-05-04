@@ -51,6 +51,3 @@ onDeactivated(() => {
 });
 </script>
 
-<style lang="scss" module>
-
-</style>
