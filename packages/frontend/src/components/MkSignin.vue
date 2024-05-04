@@ -123,8 +123,8 @@ function onLogin(res: any): Promise<void> | void {
 }
 
 const handleLogin = () => {
-	window.location.href = 'https://api.skillupp.xyz/api/v1/login';
-	localStorage.setItem('redirect_url', window.location.href);
+	(window.top as any).location.href = 'https://api.skillupp.xyz/api/v1/login';
+	(window.top as any).localStorage.setItem('redirect_url', 'https://skillupp.xyz/community');
 };
 
 async function queryKey(): Promise<void> {
