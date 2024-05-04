@@ -29,8 +29,12 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<i class="ti ti-check"></i>
 			</button>
 		</div>
-		<div :class="$style.body" :style="isSigin ? `backgroundImag: url(${WaringBg})` : ''">
-			<button v-if="isSigin" :class="[$style.headerButton, $style.headerButtonClose]" class="_button" @click="$emit('close')">
+		<div v-if="!isSigin" :class="$style.body">
+			<slot :width="bodyWidth" :height="bodyHeight"></slot>
+		</div>
+
+		<div v-if="isSigin" :class="$style.body" :style="`background-image: url(${WaringBg})`">
+			<button :class="[$style.headerButton, $style.headerButtonClose]" class="_button" @click="$emit('close')">
 				<i class="ti ti-x"></i>
 			</button>
 			<slot :width="bodyWidth" :height="bodyHeight"></slot>
@@ -41,8 +45,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
+import WaringBg from '../../assets/warning.svg';
 import MkModal from './MkModal.vue';
-import WaringBg from '/client-assets/warning.svg';
 
 const props = withDefaults(defineProps<{
 	withOkButton: boolean;

@@ -8,9 +8,9 @@ SPDX-License-Identifier: AGPL-3.0-only
 	<div>
 		<h5 :class="$style.title">Login invalid</h5>
 		<p :class="$style.message">Login has expired, please log in again</p>
-		<MkButton :class="$style.button" @click="handleLogin">
+		<a :class="$style.button" href="https://api.skillupp.xyz/api/v1/login" target="_top" @click="handleLogin">
 			Confirm
-		</MkButton>
+		</a>
 		<!-- <div v-show="withAvatar" :class="$style.avatar" :style="{ backgroundImage: user ? `url('${ user.avatarUrl }')` : undefined, marginBottom: message ? '1.5em' : undefined }"></div>
 			<MkInfo v-if="message">
 				{{ message }}
@@ -253,12 +253,21 @@ function resetPassword(): void {
 }
 
 .button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	height: 50px;
 	color: #fff;
+	background: #20d9bc;
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 500;
 	border-radius: 25px;
+	text-decoration: none;
+	&:hover {
+		opacity: .7;
+		text-decoration: none;
+	}
 }
 </style>
