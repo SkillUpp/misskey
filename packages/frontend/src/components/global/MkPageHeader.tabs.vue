@@ -43,17 +43,16 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<option value="all">All</option>
 				<option value="hot">Hot</option>
 				<option value="new">New</option>
-				<option value="top">Top</option>
-			<!-- </select> -->
+				<!-- </select> -->
 			</MkSelect>
 		</div>
-		<div :class="$style.fillter_type">
+		<!-- <div :class="$style.fillter_type">
 			<MkSelect v-model="layoutValue" small @update:modelValue="handleChangeLayout">
 				<option value="view">View</option>
 				<option value="card">Card</option>
 				<option value="compact">Compact</option>
 			</MkSelect>
-		</div>
+		</div> -->
 	</div>
 </div>
 </template>
@@ -94,6 +93,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
 	(ev: 'update:tab', key: string);
 	(ev: 'tabClick', key: string);
+	(ev: 'update:layout', key: string);
 }>();
 
 const typeValue = ref('all');
@@ -111,7 +111,7 @@ function onTabMousedown(tab: Tab, ev: MouseEvent): void {
 
 function onTabClick(t: Tab, ev: MouseEvent): void {
 	emit('tabClick', t.key);
-
+	localStorage.setItem('head_tab', t.key);
 	if (t.onClick) {
 		ev.preventDefault();
 		ev.stopPropagation();
@@ -126,6 +126,22 @@ function onTabClick(t: Tab, ev: MouseEvent): void {
 function handleChangeSelect(val) {
 	// const val = event.target.value;
 	typeValue.value = val;
+	if (val !== 'hot') {
+		const curTab = localStorage.getItem('head_tab');
+		if (curTab) {
+			emit('tabClick', curTab);
+			emit('update:tab', curTab);
+		}
+		return;
+	}
+	emit('tabClick', val);
+	if (val) {
+		emit('update:tab', val);
+		emit('tabClick', val);
+		if (val) {
+			emit('update:tab', val);
+		}
+	}
 	emit('tabClick', val);
 	if (val) {
 		emit('update:tab', val);
@@ -134,6 +150,7 @@ function handleChangeSelect(val) {
 
 function handleChangeLayout(val) {
 	layoutValue.value = val;
+	emit('update:layout', val);
 	// emit('tabClick', val);
 	// if (val) {
 	// 	emit('update:tab', val);
@@ -328,9 +345,9 @@ onUnmounted(() => {
 		align-items: center;
 		padding: 0 16px;
 
-		&:last-child {
-			padding-left: 0;
-		}
+		// &:last-child {
+		// 	padding-left: 0;
+		// }
 
 		.select {
 			height: 36px;

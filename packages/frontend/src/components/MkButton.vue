@@ -122,6 +122,7 @@ function onMousedown(evt: MouseEvent): void {
 	padding: 7px 14px;
 	text-align: center;
 	font-weight: normal;
+	color: #fff;
 	font-size: 95%;
 	box-shadow: none;
 	text-decoration: none;
@@ -134,14 +135,6 @@ function onMousedown(evt: MouseEvent): void {
 	&:hover {
 		// text-decoration: none;
 		opacity: .7;
-	}
-
-	&:not(:disabled):hover {
-		// background: var(--buttonHoverBg);
-	}
-
-	&:not(:disabled):active {
-		// background: var(--buttonHoverBg);
 	}
 
 	&.small {
@@ -164,7 +157,7 @@ function onMousedown(evt: MouseEvent): void {
 
 	&.primary {
 		font-weight: bold;
-		color: var(--fgOnAccent) !important;
+		color: #fff !important;
 		background: #20d9bc;
 
 		&:not(:disabled):hover {

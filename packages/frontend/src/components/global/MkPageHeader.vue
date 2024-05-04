@@ -32,6 +32,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			<XTabs
 				v-if="!narrow || hideTitle" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el" :fillter="fillter"
 				@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
+				@update:layout="handleLayout"
 			/>
 		</template>
 		<div v-if="(!thin_ && narrow && !hideTitle) || (actions && actions.length > 0)" :class="$style.buttonsRight">
@@ -53,6 +54,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 		<XTabs
 			:fillter="fillter" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el"
 			@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
+			@update:layout="handleLayout"
 		/>
 	</div>
 </div>
@@ -81,6 +83,7 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits<{
 	(ev: 'update:tab', key: string);
+	(ev: 'update:layout', key: string);
 }>();
 
 const pageMetadata = injectReactiveMetadata();
@@ -106,6 +109,10 @@ const top = () => {
 		scrollToTop(el.value as HTMLElement, { behavior: 'smooth' });
 	}
 };
+
+function handleLayout (val) {
+	emit('update:layout', val);
+}
 
 function openAccountMenu(ev: MouseEvent) {
 	openAccountMenu_({

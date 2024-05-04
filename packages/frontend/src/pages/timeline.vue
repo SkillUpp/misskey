@@ -10,6 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			v-model:tab="src" :actions="headerActions" :tabs="$i ? headerTabs : headerTabsWhenNotLogin"
 			:displayMyAvatar="true"
 			:fillter="true"
+			@update:layout="handleLayout"
 		/>
 	</template>
 	<MkSpacer :contentMax="800">
@@ -32,7 +33,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</div>
 				<div :class="$style.tl">
 					<MkTimeline
-						ref="tlComponent" :key="src + withRenotes + withReplies + onlyFiles" :src="src.split(':')[0]"
+						ref="tlComponent"
+						:key="src + withRenotes + withReplies + onlyFiles" :layout="layoutType" :src="src.split(':')[0]"
 						:list="src.split(':')[1]" :withRenotes="withRenotes" :withReplies="withReplies" :onlyFiles="onlyFiles"
 						:sound="true" @queue="queueUpdated"
 					/>
@@ -74,6 +76,7 @@ const keymap = {
 
 const tlComponent = shallowRef<InstanceType<typeof MkTimeline>>();
 const rootEl = shallowRef<HTMLElement>();
+const layoutType = ref('card');
 
 const queue = ref(0);
 const srcWhenNotSignin = ref<'local' | 'global'>(isLocalTimelineAvailable ? 'local' : 'global');
@@ -140,6 +143,10 @@ watch(withSensitive, () => {
 	// これだけはクライアント側で完結する処理なので手動でリロード
 	tlComponent.value?.reloadTimeline();
 });
+
+function handleLayout(val: string) {
+	layoutType.value = val;
+}
 
 function queueUpdated(q: number): void {
 	queue.value = q;
