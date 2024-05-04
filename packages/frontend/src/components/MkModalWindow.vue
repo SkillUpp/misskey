@@ -33,7 +33,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			<slot :width="bodyWidth" :height="bodyHeight"></slot>
 		</div>
 
-		<div v-if="isSigin" :class="$style.body" :style="`background-image: url(${WaringBg})`">
+		<div v-if="isSigin" :class="$style.body" style="background-image: url(https://skillupp.xyz/_next/static/media/warning.54f2ccbb.svg)">
 			<button :class="[$style.headerButton, $style.headerButtonClose]" class="_button" @click="$emit('close')">
 				<i class="ti ti-x"></i>
 			</button>
@@ -45,7 +45,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
-import WaringBg from '../../assets/warning.svg';
 import MkModal from './MkModal.vue';
 
 const props = withDefaults(defineProps<{
