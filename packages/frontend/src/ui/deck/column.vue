@@ -312,7 +312,7 @@ function onDrop(ev) {
 	}
 
 	&.naked {
-		background: var(--acrylicBg) !important;
+		background: #fff !important;
 		-webkit-backdrop-filter: var(--blur, blur(10px));
 		backdrop-filter: var(--blur, blur(10px));
 
