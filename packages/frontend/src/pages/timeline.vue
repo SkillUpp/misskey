@@ -326,12 +326,7 @@ const headerTabs = computed(() => [...(defaultStore.reactiveState.pinnedUserList
 																																				title: i18n.ts._timelines.home,
 																																				// icon: 'ti ti-home',
 																																				iconOnly: false,
-																																			}] : []), {
-																																				// icon: 'ti ti-device-tv',
-																																				title: i18n.ts.channel,
-																																				iconOnly: false,
-																																				onClick: chooseChannel,
-																																			}] as Tab[]);
+																																			}] : [])] as Tab[]);
 
 const headerTabsWhenNotLogin = computed(() => [
 	...(isLocalTimelineAvailable ? [{
