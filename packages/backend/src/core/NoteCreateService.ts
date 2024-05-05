@@ -862,6 +862,14 @@ export class NoteCreateService implements OnApplicationShutdown {
 					this.fanoutTimelineService.push(`homeTimelineWithFiles:${channelFollowing.followerId}`, note.id, meta.perUserHomeTimelineCacheMax / 2, r);
 				}
 			}
+
+			// 默认进入全局 timeline
+			if (note.visibility === 'public' && note.userHost == null) {
+				this.fanoutTimelineService.push('localTimeline', note.id, 1000, r);
+				if (note.fileIds.length > 0) {
+					this.fanoutTimelineService.push('localTimelineWithFiles', note.id, 500, r);
+				}
+			}
 		} else {
 			// TODO: キャッシュ？
 			// eslint-disable-next-line prefer-const
