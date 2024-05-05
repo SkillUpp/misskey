@@ -440,7 +440,7 @@ body {
 	box-sizing: border-box;
 	-webkit-backdrop-filter: var(--blur, blur(32px));
 	backdrop-filter: var(--blur, blur(32px));
-	background-color: var(--header);
+	background-color: #fff;
 	border-top: solid 0.5px var(--divider);
 }
 

@@ -31,8 +31,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</div>
 			<XTabs
 				v-if="!narrow || hideTitle" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el" :fillter="fillter"
-				@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
-				@update:layout="handleLayout"
+				@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick" @update:layout="handleLayout"
 			/>
 		</template>
 		<div v-if="(!thin_ && narrow && !hideTitle) || (actions && actions.length > 0)" :class="$style.buttonsRight">
@@ -53,8 +52,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 	>
 		<XTabs
 			:fillter="fillter" :class="$style.tabs" :tab="tab" :tabs="tabs" :rootEl="el"
-			@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick"
-			@update:layout="handleLayout"
+			@update:tab="key => emit('update:tab', key)" @tabClick="onTabClick" @update:layout="handleLayout"
 		/>
 	</div>
 </div>
@@ -110,7 +108,7 @@ const top = () => {
 	}
 };
 
-function handleLayout (val) {
+function handleLayout(val) {
 	emit('update:layout', val);
 }
 
@@ -209,6 +207,14 @@ onUnmounted(() => {
 		>.titleContainer {
 			margin: 0 auto;
 			max-width: 100%;
+		}
+	}
+}
+
+@media only screen and (max-width: 1130px) {
+	.upper {
+		&.fillter {
+			height: 100px;
 		}
 	}
 }

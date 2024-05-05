@@ -430,7 +430,7 @@ $widgets-hide-threshold: 1090px;
 	box-sizing: border-box;
 	-webkit-backdrop-filter: var(--blur, blur(24px));
 	backdrop-filter: var(--blur, blur(24px));
-	background-color: var(--header);
+	background-color: #fff;
 	border-top: solid 0.5px var(--divider);
 }
 

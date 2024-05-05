@@ -345,10 +345,6 @@ onUnmounted(() => {
 		align-items: center;
 		padding: 0 16px;
 
-		// &:last-child {
-		// 	padding-left: 0;
-		// }
-
 		.select {
 			height: 36px;
 			padding: 0 6px;
