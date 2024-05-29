@@ -82,6 +82,7 @@ import { MiReversiGame } from '@/models/ReversiGame.js';
 import { Config } from '@/config.js';
 import MisskeyLogger from '@/logger.js';
 import { bindThis } from '@/decorators.js';
+import { MiComment } from '@/models/Comment.js';
 
 export const dbLogger = new MisskeyLogger('db');
 
@@ -135,6 +136,7 @@ export const entities = [
 	MiAvatarDecoration,
 	MiAuthSession,
 	MiAccessToken,
+	MiComment,
 	MiUser,
 	MiUserProfile,
 	MiUserKeypair,
