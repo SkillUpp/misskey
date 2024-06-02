@@ -48,6 +48,7 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 			await	this.notesRepository.increment({ id: ps.noteId }, 'repliesCount', 1);
 			return {
 				id: result.id,
+				createdAt: result.createdAt,
 				noteId: ps.noteId,
 				text: result.text,
 			};

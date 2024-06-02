@@ -34,6 +34,10 @@ export const meta = {
 					type: 'string',
 					optional: false, nullable: false,
 				},
+				createdAt: {
+					type: 'string',
+					optional: false, nullable: false,
+				},
 				user: {
 					type: 'object',
 					optional: true, nullable: false,
@@ -76,6 +80,7 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 			return records.map(r => ({
 				id: r.id,
 				text: r.text || '',
+				createdAt: r.createdAt,
 				user: users.find(u => u.id === r.user!.id),
 			}));
 		});
