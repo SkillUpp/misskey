@@ -500,6 +500,7 @@ const $reversiGamesRepository: Provider = {
 		$noteFavoritesRepository,
 		$noteThreadMutingsRepository,
 		$noteReactionsRepository,
+		$MiCommentRepository,
 		$noteUnreadsRepository,
 		$pollsRepository,
 		$pollVotesRepository,

@@ -4,14 +4,11 @@
  */
 
 import { Entity, Index, JoinColumn, Column, PrimaryColumn, ManyToOne } from 'typeorm';
-import { noteVisibilities } from '@/types.js';
 import { id } from './util/id.js';
 import { MiUser } from './User.js';
-import { MiChannel } from './Channel.js';
 import { MiNote } from './Note.js';
-import type { MiDriveFile } from './DriveFile.js';
 
-@Entity('comment')
+@Entity('note_comment')
 export class MiComment {
 	@PrimaryColumn(id())
 	public id: string;
@@ -42,17 +39,8 @@ export class MiComment {
 	@JoinColumn()
 	public user: MiUser | null;
 
-	// @Column('smallint', {
-	// 	default: 0,
-	// })
-	// public repliesCount: number;
-
-	constructor(data: Partial<MiNote>) {
-		if (data == null) return;
-
-		for (const [k, v] of Object.entries(data)) {
-			(this as any)[k] = v;
-		}
-	}
+	@Column('timestamp with time zone', {
+	})
+	public createdAt: Date;
 }
 
