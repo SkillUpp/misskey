@@ -22,7 +22,7 @@ export const meta = {
 		optional: false, nullable: false,
 		items: {
 			type: 'object',
-			optional: false, nullable: false,
+			nullable: false, optional: true,
 			ref: 'UserLite',
 		},
 	},
@@ -48,16 +48,15 @@ export const paramDef = {
 export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-disable-line import/no-default-export
 	constructor(
 		private channelFollowingService: ChannelFollowingService,
+		private userEntityService: UserEntityService,
 
 	) {
 		super(meta, paramDef, async (ps, me) => {
-			const channelUserList = await this.channelFollowingService.getFollwerUser(
+			const records = await this.channelFollowingService.getFollwerUser(
 				ps.channelId,
 			);
-			channelUserList.forEach(item => {
-				delete item.user_token;
-			});
-			return channelUserList;
+			const users = await this.userEntityService.packMany(records.map(r => r.user!), null);
+			return users;
 		});
 	}
 }

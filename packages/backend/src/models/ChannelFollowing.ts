@@ -43,4 +43,11 @@ export class MiChannelFollowing {
 	@Column('timestamp with time zone', {
 	})
 	public createdAt: Date;
+
+	@ManyToOne(type => MiUser, {
+		onDelete: 'CASCADE',
+
+	})
+	@JoinColumn({ name: 'followerId' })
+	public user: MiUser | null;
 }
