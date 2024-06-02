@@ -9,7 +9,7 @@ import type { MiGalleryPost, MiNote, MiUser } from '@/models/_.js';
 import { DI } from '@/di-symbols.js';
 import { bindThis } from '@/decorators.js';
 
-const GLOBAL_NOTES_RANKING_WINDOW = 1000 * 60 * 60 * 24 * 3; // 3日ごと
+const GLOBAL_NOTES_RANKING_WINDOW = 1000 * 60 * 60 * 24 * 180; // 3日ごと
 export const GALLERY_POSTS_RANKING_WINDOW = 1000 * 60 * 60 * 24 * 3; // 3日ごと
 const PER_USER_NOTES_RANKING_WINDOW = 1000 * 60 * 60 * 24 * 7; // 1週間ごと
 const HASHTAG_RANKING_WINDOW = 1000 * 60 * 60; // 1時間ごと

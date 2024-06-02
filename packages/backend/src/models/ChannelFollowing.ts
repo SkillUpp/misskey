@@ -39,4 +39,8 @@ export class MiChannelFollowing {
 	})
 	@JoinColumn()
 	public follower: MiUser | null;
+
+	@Column('timestamp with time zone', {
+	})
+	public createdAt: Date;
 }

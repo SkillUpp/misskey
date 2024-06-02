@@ -104,6 +104,7 @@ import * as ep___blocking_list from './endpoints/blocking/list.js';
 import * as ep___channels_create from './endpoints/channels/create.js';
 import * as ep___channels_featured from './endpoints/channels/featured.js';
 import * as ep___channels_follow from './endpoints/channels/follow.js';
+import * as ep___channels_follow_user from './endpoints/channels/follow-user.js';
 import * as ep___channels_followed from './endpoints/channels/followed.js';
 import * as ep___channels_owned from './endpoints/channels/owned.js';
 import * as ep___channels_show from './endpoints/channels/show.js';
@@ -475,6 +476,7 @@ const eps = [
 	['channels/create', ep___channels_create],
 	['channels/featured', ep___channels_featured],
 	['channels/follow', ep___channels_follow],
+	['channels/follow-user', ep___channels_follow_user],
 	['channels/followed', ep___channels_followed],
 	['channels/owned', ep___channels_owned],
 	['channels/show', ep___channels_show],

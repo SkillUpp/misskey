@@ -49,6 +49,7 @@ export class ChannelFollowingService implements OnModuleInit {
 			id: this.idService.gen(),
 			followerId: requestUser.id,
 			followeeId: targetChannel.id,
+			createdAt: new Date(),
 		});
 
 		this.globalEventService.publishInternalEvent('followChannel', {
@@ -71,6 +72,16 @@ export class ChannelFollowingService implements OnModuleInit {
 			userId: requestUser.id,
 			channelId: targetChannel.id,
 		});
+	}
+
+	public async getFollwerUser(id:string) {
+		const q = await this.channelFollowingsRepository.createQueryBuilder('following')
+			.where('following.followeeId = :targetChannelId', { targetChannelId: id })
+			.take(40)
+			.orderBy( 'following.createdAt', 'DESC' )
+			.innerJoinAndSelect('following.follower', 'user');
+		console.log(await q.getRawMany() );
+		return await q.getRawMany();
 	}
 
 	@bindThis
